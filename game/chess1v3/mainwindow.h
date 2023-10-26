@@ -22,12 +22,12 @@ public:
 private:
     Ui::MainWindow *ui;
 
-    InfoPlayer player1;
-    InfoPlayer player2;
-    InfoPlayer player3;
+//    InfoPlayer player1;
+//    InfoPlayer player2;
+//    InfoPlayer player3;
 
-    BinFile file;
+//    BinFile file;
 
-    MoveCounter moveHistory;
+//    MoveCounter moveHistory;
 };
 #endif // MAINWINDOW_H

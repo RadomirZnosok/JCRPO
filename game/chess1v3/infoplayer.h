@@ -12,6 +12,7 @@ private:
     QString playerName;
     QList<Figure> listFigure;
     QList<Position> listPos;
+    short score;
 
 public:
     InfoPlayer(QString player = "");

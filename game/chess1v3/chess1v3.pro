@@ -15,7 +15,8 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     movecounter.cpp \
-    position.cpp
+    position.cpp \
+    startwindow.cpp
 
 HEADERS += \
     binfile.h \
@@ -24,7 +25,8 @@ HEADERS += \
     infoplayer.h \
     mainwindow.h \
     movecounter.h \
-    position.h
+    position.h \
+    startwindow.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -32,4 +34,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    startwindow.ui

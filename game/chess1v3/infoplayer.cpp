@@ -31,12 +31,14 @@ InfoPlayer::InfoPlayer(QString newName)
     this->listFigure.append(obj);
     obj.setName("король");
     this->listFigure.append(obj);
+
+    this->score = 0;
 }
 
 InfoPlayer::InfoPlayer(const InfoPlayer& obj)
     :playerName(obj.getName()), listFigure(obj.listFigure)
 {
-
+    score = 0;
 }
 
 InfoPlayer::~InfoPlayer(){
@@ -48,6 +50,7 @@ InfoPlayer& InfoPlayer::operator=(const InfoPlayer& obj){
     for (int i = 0; i < 16; i++){
         this->listFigure[i] = obj.listFigure.at(i);
     }
+    score = obj.score;
     return *this;
 }
 

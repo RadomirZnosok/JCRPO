@@ -1,2 +1,0 @@
-/game/build-chess1v3-Desktop_Qt_6_5_2_MinGW_64_bit-Debug
-/game/build-chess1v3-Desktop_Qt_6_5_2_MinGW_64_bit-Release

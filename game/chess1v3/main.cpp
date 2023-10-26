@@ -1,12 +1,12 @@
 #include "mainwindow.h"
-
+#include "startwindow.h"
 #include <QApplication>
 
 void initRun();
 
 int main(int argc, char *argv[])
 {
-    if (argc > 1){
+/*    if (argc > 1){
         char* runner;
         runner = *argv;
         for (; runner != nullptr; runner++){
@@ -16,10 +16,14 @@ int main(int argc, char *argv[])
             }
         }
         return 0;
-    }
+    }*/
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    StartWindow w1;
+    w1.setWindowTitle("Chess1v3");
+    w1.show();
+//    MainWindow w1;
+//    w1.setWindowTitle("Chess1v3");
+//    w1.show();
     return a.exec();
 }
 

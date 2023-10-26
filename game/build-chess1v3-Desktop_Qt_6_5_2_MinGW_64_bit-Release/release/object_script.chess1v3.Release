@@ -1,0 +1,10 @@
+release/binfile.o
+release/figure.o
+release/infoplayer.o
+release/main.o
+release/mainwindow.o
+release/movecounter.o
+release/position.o
+release/startwindow.o
+release/moc_mainwindow.o
+release/moc_startwindow.o
