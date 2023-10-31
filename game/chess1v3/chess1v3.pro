@@ -11,6 +11,7 @@ CONFIG += c++17
 SOURCES += \
     binfile.cpp \
     figure.cpp \
+    getnames.cpp \
     infoplayer.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 HEADERS += \
     binfile.h \
     figure.h \
+    getnames.h \
     header.h \
     infoplayer.h \
     mainwindow.h \
@@ -34,5 +36,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 FORMS += \
+    getnames.ui \
     mainwindow.ui \
     startwindow.ui
