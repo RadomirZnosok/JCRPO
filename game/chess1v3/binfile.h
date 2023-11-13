@@ -28,6 +28,8 @@ public:
     void writePlayers();
     void readPlayers();
 
+    InfoPlayer createPlayer(QString name = "");
+
     void writeFigure(QTextStream& out, const Figure& obj);
 //    void readFigure();
 

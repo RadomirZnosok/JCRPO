@@ -2,6 +2,11 @@
 #define STARTWINDOW_H
 
 #include <QMainWindow>
+#include "getnames.h"
+#include <QMessageBox>
+
+#include "infoplayer.h"
+#include "movecounter.h"
 
 namespace Ui {
 class StartWindow;

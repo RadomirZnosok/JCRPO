@@ -16,18 +16,16 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr, InfoPlayer* player1 = nullptr, InfoPlayer* player2 = nullptr, InfoPlayer* player3 = nullptr, MoveCounter* moveHistory = nullptr);
     ~MainWindow();
 
 private:
     Ui::MainWindow *ui;
 
-//    InfoPlayer player1;
-//    InfoPlayer player2;
-//    InfoPlayer player3;
+    InfoPlayer player1;
+    InfoPlayer player2;
+    InfoPlayer player3;
 
-//    BinFile file;
-
-//    MoveCounter moveHistory;
+    MoveCounter moveHistory;
 };
 #endif // MAINWINDOW_H

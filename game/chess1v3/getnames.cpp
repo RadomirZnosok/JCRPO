@@ -30,3 +30,5 @@ void getNames::on_NP3_editingFinished()
     m_string3 = ui->NP3->displayText();
 }
 
+
+

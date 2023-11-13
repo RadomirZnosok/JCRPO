@@ -28,6 +28,7 @@ private slots:
 
     void on_NP3_editingFinished();
 
+
 private:
     Ui::getNames *ui;
     QString m_string1;
