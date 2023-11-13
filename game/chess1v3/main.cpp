@@ -25,6 +25,9 @@ int main(int argc, char *argv[])
 //    w1.setWindowTitle("Chess1v3");
 //    w1.show();
     return a.exec();
+
+
+    // kyky
 }
 
 
