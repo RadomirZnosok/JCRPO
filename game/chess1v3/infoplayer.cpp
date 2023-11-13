@@ -35,6 +35,16 @@ InfoPlayer::InfoPlayer(QString newName)
     this->score = 0;
 }
 
+InfoPlayer::InfoPlayer(InfoPlayer* player){
+    if (player && player != this){
+        this->playerName = player->getName();
+        for (int i = 0; i < 16; i++){
+            this->listFigure[i] = player->getFigure(i);
+        }
+        score = player->score;
+    }
+}
+
 InfoPlayer::InfoPlayer(const InfoPlayer& obj)
     :playerName(obj.getName()), listFigure(obj.listFigure)
 {

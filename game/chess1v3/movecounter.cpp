@@ -2,9 +2,11 @@
 
 
 
-MoveCounter::MoveCounter()
+MoveCounter::MoveCounter(MoveCounter* obj)
 {
-
+    if (obj && this != obj){
+        this->list = obj->getList();
+    }
 }
 
 MoveCounter::MoveCounter(const MoveCounter& obj){

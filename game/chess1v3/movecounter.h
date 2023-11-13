@@ -11,7 +11,7 @@ private:
     QVector<QString> list;
 
 public:
-    MoveCounter();
+    MoveCounter(MoveCounter* obj = nullptr);
     MoveCounter(const MoveCounter& obj);
 
     MoveCounter& operator=(const MoveCounter& obj);

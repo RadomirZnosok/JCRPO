@@ -7,6 +7,9 @@
 #include "infoplayer.h"
 #include "movecounter.h"
 
+#include<QPushButton>
+#include<QLabel>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -22,10 +25,16 @@ public:
 private:
     Ui::MainWindow *ui;
 
-    InfoPlayer player1;
-    InfoPlayer player2;
-    InfoPlayer player3;
+    InfoPlayer player1;             // информация игрока1
+    InfoPlayer player2;             // информация игрока2
+    InfoPlayer player3;             // информация игрока3
 
-    MoveCounter moveHistory;
+    MoveCounter moveHistory;        // история ходов
+    bool busyPlace[8][12];          // busy - true; empty - false;
+    bool isCurPlace;                // true - нажата фигура, false - не нажата
+    int curPlace[2];                // место активированной кнопки
+
+    QPushButton* buttons[8][12];    // ссылки на кнопки
+    QLabel* labels[8][12];          // ссылки на объекты с изображениями фигур
 };
 #endif // MAINWINDOW_H
