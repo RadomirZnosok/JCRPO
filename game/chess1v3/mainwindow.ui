@@ -163,9 +163,6 @@
         <property name="text">
          <string/>
         </property>
-        <property name="pixmap">
-         <pixmap>../resources/chess1v3-doska 329x380.png</pixmap>
-        </property>
         <property name="scaledContents">
          <bool>true</bool>
         </property>
@@ -2085,10 +2082,6 @@
      <property name="text">
       <string/>
      </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../../../../Users/USER/OneDrive/Изображения/Для работы/БГУИР_3курс_ЖЦРПО/bконь обрезанная 34x34.png</normaloff>../../../../Users/USER/OneDrive/Изображения/Для работы/БГУИР_3курс_ЖЦРПО/bконь обрезанная 34x34.png</iconset>
-     </property>
      <property name="iconSize">
       <size>
        <width>32</width>
@@ -3615,6 +3608,9 @@
      </property>
     </widget>
    </widget>
+   <zorder>frame_buttons</zorder>
+   <zorder>frame_figures</zorder>
+   <zorder>frame_background</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
