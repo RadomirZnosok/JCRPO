@@ -68,8 +68,8 @@ void BinFile::readFigures(){
         QString line;
         while (!(line = in.readLine(0)).isEmpty()){
             QStringList figureStr = line.split(" ");
-            Figure newFig(Figure::fromQStringList(figureStr));
-            this->listFigure.append(newFig);
+//            Figure newFig(Figure::fromQStringList(figureStr));
+//            this->listFigure.append(newFig);
             line.clear();
         }
         file.close();
@@ -77,7 +77,7 @@ void BinFile::readFigures(){
 }
 
 void BinFile::writeFigure(QTextStream& out, const Figure& obj){
-    out << obj.getName() << " ";
+/*    out << obj.getName() << " ";
     if (obj.exist){
         out << "1 ";
     }
@@ -91,7 +91,7 @@ void BinFile::writeFigure(QTextStream& out, const Figure& obj){
     for (int i = 0; i < list.size() - 1; i++){
         out << list.at(i) << " ";
     }
-    out << list.at(list.size() - 1);
+    out << list.at(list.size() - 1);*/
 }
 
 void BinFile::writePlayers(){
@@ -117,7 +117,7 @@ void BinFile::writePlayers(){
 }
 
 void BinFile::readPlayers(){
-    QFile file(filename);
+/*    QFile file(filename);
     if (!file.exists()){
 
         return;
@@ -143,7 +143,7 @@ void BinFile::readPlayers(){
         }
         file.close();
     }
-
+*/
 }
 
 QList<Figure> BinFile::getListFigure() const

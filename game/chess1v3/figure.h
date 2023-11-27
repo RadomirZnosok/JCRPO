@@ -3,56 +3,38 @@
 
 #include <QString>
 #include <QList>
+#include "position.h"
 
 #include <QTextStream>
 
-struct steps
-{
-    short n;        // север // вперед
-    short ne;       // северо-восток
-    short nw;       // северо-запад
-    short s;        // юг // назад
-    short se;       // юго-восток
-    short sw;       // юго-запад
-    short e;        // восток // вправо
-    short w;        // запад // влево
-};
 
 
-struct attack{
-    short n;        // север // вперед
-    short ne;       // северо-восток
-    short nw;       // северо-запад
-    short s;        // юг // назад
-    short se;       // юго-восток
-    short sw;       // юго-запад
-    short e;        // восток // вправо
-    short w;        // запад // влево
-};
 
-
-class Figure
+class Figure: public Position
 {
 private:
     QString name;       // имя
-    struct steps move;  // движение
-    struct attack hit;  // атака
+    QList<struct steps> moves;  // движения
+    QList<struct steps> hits;  // атаки
 
 public:
     bool exist;
-    Figure(bool exist = false, QString nname = "");
+
+    Figure(Position pos, QString nname = "", bool exist = true);
     Figure(const Figure& obj);
     ~Figure();
 
     Figure& operator=(const Figure& obj);
     QString getName() const;
     void setName(QString newName);
-    QList<short> getSteps() const;
-    void setSteps(QList<short> list);
-    QList<short> getAttack() const;
-    void setAttack(QList<short> list);
 
-    static Figure fromQStringList(const QStringList& list);
+    QList<struct steps> getSteps() const;
+    void setSteps(QList<struct steps> list);
+    QList<struct steps> getAttack() const;
+    void setAttack(QList<struct steps> list);
+
+    bool getExist() const;
+    void setExist(bool newExist);
 };
 
 

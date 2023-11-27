@@ -49,9 +49,17 @@ void StartWindow::on_pb_createGame_clicked()
             return;
         }
     }
-    InfoPlayer player1(string1);
-    InfoPlayer player2(string2);
-    InfoPlayer player3(string3);
+    else return;
+    InfoPlayer *player1 = new InfoPlayer(string1, "A1");
+    InfoPlayer *player2 = new InfoPlayer(string2, "H8");
+    InfoPlayer *player3 = new InfoPlayer(string3, "H12");
     // run game
+    MainWindow game(0, player1, player2, player3);
+    game.setWindowTitle("Chess1v3");
+    game.show();
+
+    delete player1;
+    delete player2;
+    delete player3;
 }
 

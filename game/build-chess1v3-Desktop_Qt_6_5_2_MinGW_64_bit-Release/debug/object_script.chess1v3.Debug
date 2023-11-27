@@ -1,10 +1,13 @@
 debug/binfile.o
+debug/deskplace.o
 debug/figure.o
+debug/getnames.o
 debug/infoplayer.o
 debug/main.o
 debug/mainwindow.o
 debug/movecounter.o
 debug/position.o
 debug/startwindow.o
+debug/moc_getnames.o
 debug/moc_mainwindow.o
 debug/moc_startwindow.o

@@ -21,13 +21,6 @@ public:
     QString string2() const { return m_string2; }
     QString string3() const { return m_string3; }
 
-private slots:
-    void on_NP1_editingFinished();
-
-    void on_NP2_editingFinished();
-
-    void on_NP3_editingFinished();
-
 
 private:
     Ui::getNames *ui;
@@ -35,13 +28,12 @@ private:
     QString m_string2;
     QString m_string3;
 
-    void accept() override
+    void acceptData()
     {
         m_string1 = static_cast<QLineEdit*>(layout()->itemAt(1)->widget())->text();
         m_string2 = static_cast<QLineEdit*>(layout()->itemAt(3)->widget())->text();
         m_string3 = static_cast<QLineEdit*>(layout()->itemAt(5)->widget())->text();
-
-        QDialog::accept();
+        accept();
     }
 
 };

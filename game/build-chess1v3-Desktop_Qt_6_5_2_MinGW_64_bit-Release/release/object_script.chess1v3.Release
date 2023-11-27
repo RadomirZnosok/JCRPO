@@ -1,10 +1,13 @@
 release/binfile.o
+release/deskplace.o
 release/figure.o
+release/getnames.o
 release/infoplayer.o
 release/main.o
 release/mainwindow.o
 release/movecounter.o
 release/position.o
 release/startwindow.o
+release/moc_getnames.o
 release/moc_mainwindow.o
 release/moc_startwindow.o

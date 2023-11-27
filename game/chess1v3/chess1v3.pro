@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     binfile.cpp \
+    deskplace.cpp \
     figure.cpp \
     getnames.cpp \
     infoplayer.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 
 HEADERS += \
     binfile.h \
+    deskplace.h \
     figure.h \
     getnames.h \
     header.h \
@@ -30,12 +32,12 @@ HEADERS += \
     position.h \
     startwindow.h
 
-# Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
-
 FORMS += \
     getnames.ui \
     mainwindow.ui \
     startwindow.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target

@@ -11,11 +11,10 @@ class InfoPlayer
 private:
     QString playerName;
     QList<Figure> listFigure;
-    QList<Position> listPos;
     short score;
 
 public:
-    InfoPlayer(QString player);
+    InfoPlayer(QString player, QString startPos);
     InfoPlayer(InfoPlayer* player = nullptr);
     InfoPlayer(const InfoPlayer& obj);
     ~InfoPlayer();
@@ -30,8 +29,6 @@ public:
 
     QList<Figure> getListFigure() const;
     void setListFigure(const QList<Figure> &newListFigure);
-    QList<Position> getListPos() const;
-    void setListPos(const QList<Position> &newListPos);
 };
 
 #endif // INFOPLAYER_H
