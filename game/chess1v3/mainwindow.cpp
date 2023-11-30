@@ -1,17 +1,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(int curSeq, InfoPlayer* player1, InfoPlayer* player2, InfoPlayer* player3, MoveCounter* moveHistory, QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-    , moveHistory(moveHistory)
+MainWindow::MainWindow(const QString& directoryPath, QWidget *parent)
+    : QMainWindow(parent),
+    ui(new Ui::MainWindow),
+    m_directoryPath(directoryPath)
 {
     ui->setupUi(this);
+
+    // init gameWidget
     // инициализация массива указателей на кнопки
     {
-        players[0] = player1;
-        players[1] = player2;
-        players[2] = player3;
 
         buttons[0][0] = new DeskPlace(ui->a1_pb->parentWidget(), ui->a1_pb, this);
         buttons[0][1] = new DeskPlace(ui->a2_pb->parentWidget(), ui->a2_pb, this);
@@ -117,7 +116,6 @@ MainWindow::MainWindow(int curSeq, InfoPlayer* player1, InfoPlayer* player2, Inf
         buttons[7][10] = new DeskPlace(ui->h11_pb->parentWidget(), ui->h11_pb, this);
         buttons[7][11] = new DeskPlace(ui->h12_pb->parentWidget(), ui->h12_pb, this);
     }
-
     for (int i = 0; i < 8; i++){
         for (int j = 0; j < 12; j++){
             connect(buttons[i][j], &QPushButton::clicked, this, [this, i, j](){
@@ -127,7 +125,6 @@ MainWindow::MainWindow(int curSeq, InfoPlayer* player1, InfoPlayer* player2, Inf
             buttons[i][j]->setVisible(false);
         }
     }
-
     // инициализация массива указателей на объект с изображением фигуры
     {
         pictures[0][0] = ui->a1_l;
@@ -234,11 +231,34 @@ MainWindow::MainWindow(int curSeq, InfoPlayer* player1, InfoPlayer* player2, Inf
         pictures[7][10] = ui->h11_l;
         pictures[7][11] = ui->h12_l;
     }
-    sequence = curSeq;
+
+    sequence = 0;
     isCurPlace = false;
     curPlace[0] = -1; curPlace[1] = -1;
-    enablePlayerPlaces();
+
+
+    // init startWidget
+
+
+    // init dialogWidget
+    ui->NP1->clear();
+    ui->NP2->clear();
+    ui->NP3->clear();
+
+    // init loadWidget
+
+    // init saveWIdget
+    //"C:\\Programms\\5 semester\\JCRPO\\game\\chess1v3\\resources\\backgnd.png"
+    ui->l_backgnd_startPage->setPixmap(QPixmap(QString("C:\\Programms\\5 semester\\JCRPO\\game\\chess1v3\\resources\\backgnd.png")));
+    ui->l_backgnd_dialogPage->setPixmap(QPixmap(QString("C:\\Programms\\5 semester\\JCRPO\\game\\chess1v3\\resources\\backgnd.png")));
+    ui->l_backgnd_loadPage->setPixmap(QPixmap(QString("C:\\Programms\\5 semester\\JCRPO\\game\\chess1v3\\resources\\backgnd.png")));
+    ui->l_backgnd_savePage->setPixmap(QPixmap(QString("C:\\Programms\\5 semester\\JCRPO\\game\\chess1v3\\resources\\backgnd.png")));
+    ui->l_backgnd_gamePage->setPixmap(QPixmap(QString("C:\\Programms\\5 semester\\JCRPO\\game\\chess1v3\\resources\\backgnd.png")));
+
+
+    ui->stackedWidget->setCurrentIndex(0);
 }
+
 
 MainWindow::~MainWindow()
 {
@@ -252,6 +272,9 @@ void MainWindow::nextPlayerTurn(){
     }
     else {
         sequence ++;
+    }
+    if (this->checkmate_players[sequence]){
+        nextPlayerTurn();
     }
     for (int i = 0; i < 8; i++){
         for (int j = 0; j < 12; j++){
@@ -279,14 +302,17 @@ void MainWindow::clickedButton(int col, int row){
             isCurPlace = false;
             Figure* movedFig = buttons[curPlace[0]][curPlace[1]]->getFigure();
             buttons[curPlace[0]][curPlace[1]]->setFigure(nullptr);
-            pictures[curPlace[0]][curPlace[1]]; // удаления изображения фигуры!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+            this->setIconFigure(curPlace[0], curPlace[1], ""); // очистка
             if (buttons[col][row]->getFigure()){
                 buttons[col][row]->setVisible(false);
                 buttons[col][row]->getFigure()->exist = false;
             }
             buttons[col][row]->setFigure(movedFig, sequence);
-            pictures[col][row];// вставка изображения фигуры!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            this->setIconFigure(col, row, movedFig->getName());                 // вставка
             nextPlayerTurn();
+            if (check_player1[sequence]){
+                // если вам шах, то ...
+            }
         }
     }
     else {
@@ -306,11 +332,12 @@ void MainWindow::enablePlayerPlaces(){
     QList<Figure> list = players[sequence].getListFigure();
     for (int i = 0; i < 16; i++){
         if (list[0].exist){
-
+            // сделать видимыми кнопки на фигуры
         }
     }
 }
 
+// включить кнопки, куда можно походить
 void MainWindow::enableStepPlaces(int col, int row){
     Figure* fig = buttons[col][row]->getFigure();
     QList<struct steps> hits = fig->getAttack();
@@ -322,3 +349,178 @@ void MainWindow::enableStepPlaces(int col, int row){
 
     }
 }
+
+
+
+
+void MainWindow::actNewGame(){
+
+}      // gameWidget
+
+void MainWindow::actSaveGame(){
+
+}     // gameWidget
+
+void MainWindow::actLoadGame(){
+
+}     // gameWidget
+
+void MainWindow::actStepBack(){
+
+}     // gameWidget
+
+void MainWindow::actStepForward(){
+
+}  // gameWidget
+
+void MainWindow::actListSteps(){
+
+}    // gameWidget
+
+
+void MainWindow::populateFileList() {
+    QDir directory(m_directoryPath);
+    QStringList fileList = directory.entryList(QDir::Files | QDir::NoDotAndDotDot);
+    ui->lw_loadPage->clear();
+    ui->lw_loadPage->addItems(fileList);
+}
+
+void MainWindow::setIconFigure(int i, int j, const QString &figName)
+{
+    if (figName.isEmpty()){
+        this->pictures[i][j]->setIcon(QIcon());
+    }
+    else if (!figName.compare(fignames[0])){     // пешка
+        this->pictures[i][j]->setIcon(QIcon());
+    }
+    else if (!figName.compare(fignames[1])){
+        this->pictures[i][j]->setIcon(QIcon());
+    }
+    else if(!figName.compare(fignames[2])){
+        this->pictures[i][j]->setIcon(QIcon());
+    }
+    else if(!figName.compare(fignames[3])){
+        this->pictures[i][j]->setIcon(QIcon());
+    }
+    else if(!figName.compare(fignames[4])){
+        this->pictures[i][j]->setIcon(QIcon());
+    }
+    else if(!figName.compare(fignames[5])){
+        this->pictures[i][j]->setIcon(QIcon());
+    }
+}
+
+
+
+
+
+
+
+
+
+
+// сохранение ввода имен
+void MainWindow::on_okDialog_clicked()
+{
+    if (ui->NP1->text().size() == 0 || ui->NP2->text().size() == 0 || ui->NP3->text().size() == 0){
+        QMessageBox::critical(nullptr, "Information", "Вы ввели не всех игроков.");
+        return;
+    }
+    if (stage == 1){
+        stage = 0;
+        createNewGame();
+        ui->stackedWidget->setCurrentIndex(4);
+        return;
+    }
+    /*    else if (){
+
+    }*/
+}
+
+// отмена ввода имен
+void MainWindow::on_cancelDialog_clicked()
+{
+    if (stage == 1 || stage == 2){
+        stage = 0;
+        ui->stackedWidget->setCurrentIndex(0);
+        return;
+    }/*
+    else if (){
+
+    }*/
+}
+
+
+void MainWindow::on_pb_createGame_2_clicked()
+{
+    stage = 1;
+    ui->NP1->clear();
+    ui->NP2->clear();
+    ui->NP3->clear();
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+
+
+void MainWindow::on_pb_loadGame_2_clicked()
+{
+    stage = 2;
+    populateFileList();
+    ui->stackedWidget->setCurrentIndex(2);
+}
+
+
+void MainWindow::on_pb_OK_loadPage_clicked()
+{
+    QListWidgetItem* selectedItem = ui->lw_loadPage->currentItem();
+    if (selectedItem) {
+        QString selectedFileName = selectedItem->text();
+
+        // do
+        loadGame();
+        //qDebug() << "Selected file: " << selectedFileName;
+    }
+}
+
+
+void MainWindow::on_pb_back_loadPage_clicked()
+{
+    if (stage == 1 || stage == 2){
+        stage = 0;
+        ui->stackedWidget->setCurrentIndex(0);
+        return;
+    }
+    // else if (){}
+}
+
+void MainWindow::loadGame(){
+
+
+}
+
+void MainWindow::createNewGame(){
+    players[0] = InfoPlayer(ui->NP1->text(), "A01");
+    players[1] = InfoPlayer(ui->NP2->text(), "H08");
+    players[2] = InfoPlayer(ui->NP3->text(), "H12");
+    ui->l_PName1->setText(ui->NP1->text());
+    ui->l_PName2->setText(ui->NP2->text());
+    ui->l_PName3->setText(ui->NP3->text());
+    ui->l_PScore1->setText("0");
+    ui->l_PScore1->setText("0");
+    ui->l_PScore1->setText("0");
+
+    moveHistory = MoveCounter();
+    sequence = 0;
+
+    isCurPlace = false;
+    curPlace[0] = -1; curPlace[1] = -1;
+    for (int i = 0; i < 3; i++){
+        check_player1[i] = false;
+        checkmate_players[i] = false;
+    }
+}
+
+
+
+
+

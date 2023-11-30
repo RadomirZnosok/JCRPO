@@ -11,7 +11,7 @@ InfoPlayer::InfoPlayer(QString newName, QString startPos)
     Figure obj = Figure(true);
     this->playerName = newName;
 
-    obj.setName("пешка");
+    obj.setName(fignames[0]);
     if (a1){
         list.append(Position::makeSteps(2,0,0,0));
         list.append(Position::makeSteps(1,0,0,0));
@@ -41,7 +41,7 @@ InfoPlayer::InfoPlayer(QString newName, QString startPos)
         }
     }
 
-    obj.setName("ладья");
+    obj.setName(fignames[1]);
     list.append(Position::makeSteps(1,0,0,0));
     list.append(Position::makeSteps(2,0,0,0));
     list.append(Position::makeSteps(3,0,0,0));
@@ -97,7 +97,7 @@ InfoPlayer::InfoPlayer(QString newName, QString startPos)
         this->listFigure.append(obj);
     }
 
-    obj.setName("конь");
+    obj.setName(fignames[2]);
     list.append(Position::makeSteps(2,0,1,0));
     list.append(Position::makeSteps(2,0,0,1));
     list.append(Position::makeSteps(0,2,1,0));
@@ -117,7 +117,7 @@ InfoPlayer::InfoPlayer(QString newName, QString startPos)
         this->listFigure.append(obj);
     }
 
-    obj.setName("слон");
+    obj.setName(fignames[3]);
     list.append(Position::makeSteps(1,0,1,0));
     list.append(Position::makeSteps(2,0,2,0));
     list.append(Position::makeSteps(3,0,3,0));
@@ -173,7 +173,7 @@ InfoPlayer::InfoPlayer(QString newName, QString startPos)
         this->listFigure.append(obj);
     }
 
-    obj.setName("ферзь");
+    obj.setName(fignames[4]);
     list.append(Position::makeSteps(1,0,0,0));
     list.append(Position::makeSteps(2,0,0,0));
     list.append(Position::makeSteps(3,0,0,0));
@@ -272,7 +272,7 @@ InfoPlayer::InfoPlayer(QString newName, QString startPos)
     }
 
     this->listFigure.append(obj);
-    obj.setName("король");
+    obj.setName(fignames[5]);
     list.append(Position::makeSteps(1,0,0,0));
     list.append(Position::makeSteps(0,1,0,0));
     list.append(Position::makeSteps(0,0,1,0));

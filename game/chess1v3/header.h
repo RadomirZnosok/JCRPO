@@ -1,7 +1,9 @@
 #ifndef HEADER_H
 #define HEADER_H
 
-using namespace std;
+#include <QString>
+
+const QString fignames[] = {"пешка","ладья","конь","слон","ферзь","король"};
 
 
 #endif // HEADER_H

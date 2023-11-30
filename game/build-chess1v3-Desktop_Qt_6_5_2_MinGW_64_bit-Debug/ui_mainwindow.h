@@ -10,17 +10,21 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QAction>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QStackedWidget>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,35 +32,75 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *action;
-    QAction *action_2;
-    QAction *action_3;
-    QAction *action_4;
-    QAction *action_5;
-    QAction *action_6;
     QWidget *centralwidget;
+    QStackedWidget *stackedWidget;
+    QWidget *startPage;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout_2;
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *verticalSpacer_5;
+    QLabel *gameName_2;
+    QSpacerItem *verticalSpacer_2;
+    QHBoxLayout *horizontalLayout_2;
+    QSpacerItem *horizontalSpacer_4;
+    QPushButton *pb_createGame_2;
+    QSpacerItem *horizontalSpacer_5;
+    QPushButton *pb_loadGame_2;
+    QSpacerItem *horizontalSpacer_6;
+    QSpacerItem *verticalSpacer_4;
+    QSpacerItem *verticalSpacer_3;
+    QLabel *l_backgnd_startPage;
+    QWidget *dialogPage;
+    QWidget *verticalLayoutWidget_2;
+    QVBoxLayout *verticalLayout_3;
+    QSpacerItem *verticalSpacer_8;
+    QLabel *label;
+    QLineEdit *NP1;
+    QSpacerItem *verticalSpacer_6;
+    QLabel *label_2;
+    QLineEdit *NP2;
+    QSpacerItem *verticalSpacer_7;
+    QLabel *label_3;
+    QLineEdit *NP3;
+    QSpacerItem *verticalSpacer_9;
+    QHBoxLayout *horizontalLayout_3;
+    QPushButton *okDialog;
+    QPushButton *cancelDialog;
+    QLabel *l_backgnd_dialogPage;
+    QWidget *loadPage;
+    QLabel *l_backgnd_loadPage;
+    QListWidget *lw_loadPage;
+    QLabel *l_info_loadPage;
+    QWidget *horizontalLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *pb_OK_loadPage;
+    QPushButton *pb_back_loadPage;
+    QWidget *savePage;
+    QLabel *l_backgnd_savePage;
+    QWidget *gamePage;
+    QLabel *l_backgnd_gamePage;
     QFrame *frame_background;
     QWidget *gridLayoutWidget_4;
     QGridLayout *gridLayout_6;
     QLabel *l_PName3;
-    QLabel *label_15;
     QLabel *label_16;
-    QSpacerItem *horizontalSpacer_9;
     QLabel *l_PScore2;
     QLabel *desk;
-    QLabel *label_18;
     QLabel *label_19;
     QSpacerItem *horizontalSpacer_10;
     QLabel *label_20;
-    QSpacerItem *verticalSpacer_5;
-    QSpacerItem *horizontalSpacer_11;
+    QSpacerItem *verticalSpacer_10;
     QLabel *l_PName1;
     QLabel *l_PName2;
-    QSpacerItem *verticalSpacer_6;
+    QSpacerItem *verticalSpacer_11;
     QLabel *l_PScore1;
     QLabel *l_PScore3;
     QLabel *label_21;
     QSpacerItem *horizontalSpacer_12;
+    QLabel *label_15;
+    QLabel *label_18;
+    QSpacerItem *horizontalSpacer;
+    QSpacerItem *horizontalSpacer_2;
     QFrame *frame_buttons;
     QPushButton *a5_pb;
     QPushButton *b11_pb;
@@ -251,37 +295,216 @@ public:
     QPushButton *g11_l;
     QPushButton *h10_l;
     QPushButton *e12_l;
+    QWidget *loadingPage;
+    QLabel *l_backgnd_loadingPage;
     QMenuBar *menubar;
-    QMenu *menu;
-    QMenu *menu_2;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(889, 683);
-        MainWindow->setMinimumSize(QSize(0, 0));
-        MainWindow->setMaximumSize(QSize(99999, 99999));
-        action = new QAction(MainWindow);
-        action->setObjectName("action");
-        action_2 = new QAction(MainWindow);
-        action_2->setObjectName("action_2");
-        action_3 = new QAction(MainWindow);
-        action_3->setObjectName("action_3");
-        action_4 = new QAction(MainWindow);
-        action_4->setObjectName("action_4");
-        action_5 = new QAction(MainWindow);
-        action_5->setObjectName("action_5");
-        action_6 = new QAction(MainWindow);
-        action_6->setObjectName("action_6");
+        MainWindow->resize(800, 680);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        centralwidget->setEnabled(true);
-        frame_background = new QFrame(centralwidget);
+        stackedWidget = new QStackedWidget(centralwidget);
+        stackedWidget->setObjectName("stackedWidget");
+        stackedWidget->setGeometry(QRect(0, 0, 800, 637));
+        startPage = new QWidget();
+        startPage->setObjectName("startPage");
+        verticalLayoutWidget = new QWidget(startPage);
+        verticalLayoutWidget->setObjectName("verticalLayoutWidget");
+        verticalLayoutWidget->setGeometry(QRect(0, 0, 801, 711));
+        verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout_2->setObjectName("verticalLayout_2");
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer);
+
+        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_5);
+
+        gameName_2 = new QLabel(verticalLayoutWidget);
+        gameName_2->setObjectName("gameName_2");
+        QFont font;
+        font.setPointSize(17);
+        gameName_2->setFont(font);
+        gameName_2->setLayoutDirection(Qt::LeftToRight);
+        gameName_2->setTextFormat(Qt::AutoText);
+        gameName_2->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_2->addWidget(gameName_2);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_2);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_4);
+
+        pb_createGame_2 = new QPushButton(verticalLayoutWidget);
+        pb_createGame_2->setObjectName("pb_createGame_2");
+        pb_createGame_2->setMinimumSize(QSize(90, 30));
+
+        horizontalLayout_2->addWidget(pb_createGame_2);
+
+        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_5);
+
+        pb_loadGame_2 = new QPushButton(verticalLayoutWidget);
+        pb_loadGame_2->setObjectName("pb_loadGame_2");
+        pb_loadGame_2->setMinimumSize(QSize(90, 30));
+
+        horizontalLayout_2->addWidget(pb_loadGame_2);
+
+        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_6);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_2);
+
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_4);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_3);
+
+        l_backgnd_startPage = new QLabel(startPage);
+        l_backgnd_startPage->setObjectName("l_backgnd_startPage");
+        l_backgnd_startPage->setGeometry(QRect(0, 0, 800, 597));
+        stackedWidget->addWidget(startPage);
+        l_backgnd_startPage->raise();
+        verticalLayoutWidget->raise();
+        dialogPage = new QWidget();
+        dialogPage->setObjectName("dialogPage");
+        verticalLayoutWidget_2 = new QWidget(dialogPage);
+        verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
+        verticalLayoutWidget_2->setGeometry(QRect(220, 120, 401, 332));
+        verticalLayout_3 = new QVBoxLayout(verticalLayoutWidget_2);
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        verticalSpacer_8 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout_3->addItem(verticalSpacer_8);
+
+        label = new QLabel(verticalLayoutWidget_2);
+        label->setObjectName("label");
+
+        verticalLayout_3->addWidget(label);
+
+        NP1 = new QLineEdit(verticalLayoutWidget_2);
+        NP1->setObjectName("NP1");
+
+        verticalLayout_3->addWidget(NP1);
+
+        verticalSpacer_6 = new QSpacerItem(20, 5, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout_3->addItem(verticalSpacer_6);
+
+        label_2 = new QLabel(verticalLayoutWidget_2);
+        label_2->setObjectName("label_2");
+
+        verticalLayout_3->addWidget(label_2);
+
+        NP2 = new QLineEdit(verticalLayoutWidget_2);
+        NP2->setObjectName("NP2");
+
+        verticalLayout_3->addWidget(NP2);
+
+        verticalSpacer_7 = new QSpacerItem(20, 5, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout_3->addItem(verticalSpacer_7);
+
+        label_3 = new QLabel(verticalLayoutWidget_2);
+        label_3->setObjectName("label_3");
+
+        verticalLayout_3->addWidget(label_3);
+
+        NP3 = new QLineEdit(verticalLayoutWidget_2);
+        NP3->setObjectName("NP3");
+
+        verticalLayout_3->addWidget(NP3);
+
+        verticalSpacer_9 = new QSpacerItem(20, 50, QSizePolicy::Minimum, QSizePolicy::Fixed);
+
+        verticalLayout_3->addItem(verticalSpacer_9);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName("horizontalLayout_3");
+        okDialog = new QPushButton(verticalLayoutWidget_2);
+        okDialog->setObjectName("okDialog");
+
+        horizontalLayout_3->addWidget(okDialog);
+
+        cancelDialog = new QPushButton(verticalLayoutWidget_2);
+        cancelDialog->setObjectName("cancelDialog");
+
+        horizontalLayout_3->addWidget(cancelDialog);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_3);
+
+        l_backgnd_dialogPage = new QLabel(dialogPage);
+        l_backgnd_dialogPage->setObjectName("l_backgnd_dialogPage");
+        l_backgnd_dialogPage->setGeometry(QRect(0, 0, 800, 637));
+        l_backgnd_dialogPage->setPixmap(QPixmap(QString::fromUtf8("resources/backgnd.png")));
+        stackedWidget->addWidget(dialogPage);
+        l_backgnd_dialogPage->raise();
+        verticalLayoutWidget_2->raise();
+        loadPage = new QWidget();
+        loadPage->setObjectName("loadPage");
+        l_backgnd_loadPage = new QLabel(loadPage);
+        l_backgnd_loadPage->setObjectName("l_backgnd_loadPage");
+        l_backgnd_loadPage->setGeometry(QRect(0, 0, 800, 597));
+        l_backgnd_loadPage->setPixmap(QPixmap(QString::fromUtf8("resources/backgnd.png")));
+        lw_loadPage = new QListWidget(loadPage);
+        lw_loadPage->setObjectName("lw_loadPage");
+        lw_loadPage->setGeometry(QRect(200, 140, 391, 271));
+        l_info_loadPage = new QLabel(loadPage);
+        l_info_loadPage->setObjectName("l_info_loadPage");
+        l_info_loadPage->setGeometry(QRect(200, 120, 391, 16));
+        horizontalLayoutWidget = new QWidget(loadPage);
+        horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
+        horizontalLayoutWidget->setGeometry(QRect(200, 410, 391, 31));
+        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
+        horizontalLayout->setObjectName("horizontalLayout");
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        pb_OK_loadPage = new QPushButton(horizontalLayoutWidget);
+        pb_OK_loadPage->setObjectName("pb_OK_loadPage");
+
+        horizontalLayout->addWidget(pb_OK_loadPage);
+
+        pb_back_loadPage = new QPushButton(horizontalLayoutWidget);
+        pb_back_loadPage->setObjectName("pb_back_loadPage");
+
+        horizontalLayout->addWidget(pb_back_loadPage);
+
+        stackedWidget->addWidget(loadPage);
+        savePage = new QWidget();
+        savePage->setObjectName("savePage");
+        l_backgnd_savePage = new QLabel(savePage);
+        l_backgnd_savePage->setObjectName("l_backgnd_savePage");
+        l_backgnd_savePage->setGeometry(QRect(0, 0, 800, 597));
+        stackedWidget->addWidget(savePage);
+        gamePage = new QWidget();
+        gamePage->setObjectName("gamePage");
+        l_backgnd_gamePage = new QLabel(gamePage);
+        l_backgnd_gamePage->setObjectName("l_backgnd_gamePage");
+        l_backgnd_gamePage->setGeometry(QRect(0, 0, 800, 637));
+        l_backgnd_gamePage->setPixmap(QPixmap(QString::fromUtf8("resources/backgnd.png")));
+        frame_background = new QFrame(gamePage);
         frame_background->setObjectName("frame_background");
         frame_background->setEnabled(true);
-        frame_background->setGeometry(QRect(-1, -1, 800, 640));
+        frame_background->setGeometry(QRect(0, 0, 800, 637));
         frame_background->setFrameShape(QFrame::StyledPanel);
         frame_background->setFrameShadow(QFrame::Raised);
         gridLayoutWidget_4 = new QWidget(frame_background);
@@ -297,23 +520,11 @@ public:
 
         gridLayout_6->addWidget(l_PName3, 0, 9, 1, 1);
 
-        label_15 = new QLabel(gridLayoutWidget_4);
-        label_15->setObjectName("label_15");
-        label_15->setMinimumSize(QSize(55, 30));
-        label_15->setMaximumSize(QSize(16777215, 30));
-        label_15->setAlignment(Qt::AlignCenter);
-
-        gridLayout_6->addWidget(label_15, 0, 1, 1, 1);
-
         label_16 = new QLabel(gridLayoutWidget_4);
         label_16->setObjectName("label_16");
         label_16->setAlignment(Qt::AlignCenter);
 
         gridLayout_6->addWidget(label_16, 1, 8, 1, 1);
-
-        horizontalSpacer_9 = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-
-        gridLayout_6->addItem(horizontalSpacer_9, 0, 10, 2, 1);
 
         l_PScore2 = new QLabel(gridLayoutWidget_4);
         l_PScore2->setObjectName("l_PScore2");
@@ -335,14 +546,6 @@ public:
 
         gridLayout_6->addWidget(desk, 3, 3, 1, 5);
 
-        label_18 = new QLabel(gridLayoutWidget_4);
-        label_18->setObjectName("label_18");
-        label_18->setMinimumSize(QSize(10, 30));
-        label_18->setMaximumSize(QSize(16777215, 30));
-        label_18->setAlignment(Qt::AlignCenter);
-
-        gridLayout_6->addWidget(label_18, 1, 1, 1, 1);
-
         label_19 = new QLabel(gridLayoutWidget_4);
         label_19->setObjectName("label_19");
         label_19->setAlignment(Qt::AlignCenter);
@@ -360,13 +563,9 @@ public:
 
         gridLayout_6->addWidget(label_20, 0, 4, 1, 2);
 
-        verticalSpacer_5 = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_10 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-        gridLayout_6->addItem(verticalSpacer_5, 2, 0, 1, 11);
-
-        horizontalSpacer_11 = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-
-        gridLayout_6->addItem(horizontalSpacer_11, 0, 0, 2, 1);
+        gridLayout_6->addItem(verticalSpacer_10, 2, 0, 1, 11);
 
         l_PName1 = new QLabel(gridLayoutWidget_4);
         l_PName1->setObjectName("l_PName1");
@@ -380,9 +579,9 @@ public:
 
         gridLayout_6->addWidget(l_PName2, 0, 6, 1, 1);
 
-        verticalSpacer_6 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_11 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-        gridLayout_6->addItem(verticalSpacer_6, 4, 0, 1, 11);
+        gridLayout_6->addItem(verticalSpacer_11, 4, 0, 1, 11);
 
         l_PScore1 = new QLabel(gridLayoutWidget_4);
         l_PScore1->setObjectName("l_PScore1");
@@ -410,9 +609,46 @@ public:
 
         gridLayout_6->addItem(horizontalSpacer_12, 0, 3, 2, 1);
 
+        label_15 = new QLabel(gridLayoutWidget_4);
+        label_15->setObjectName("label_15");
+        label_15->setMinimumSize(QSize(55, 30));
+        label_15->setMaximumSize(QSize(16777215, 30));
+        label_15->setAlignment(Qt::AlignCenter);
+
+        gridLayout_6->addWidget(label_15, 0, 1, 1, 1);
+
+        label_18 = new QLabel(gridLayoutWidget_4);
+        label_18->setObjectName("label_18");
+        label_18->setMinimumSize(QSize(10, 30));
+        label_18->setMaximumSize(QSize(16777215, 30));
+        label_18->setAlignment(Qt::AlignCenter);
+
+        gridLayout_6->addWidget(label_18, 1, 1, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        gridLayout_6->addItem(horizontalSpacer, 0, 0, 2, 1);
+
+        horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        gridLayout_6->addItem(horizontalSpacer_2, 0, 10, 2, 1);
+
         gridLayout_6->setRowStretch(0, 1);
         gridLayout_6->setColumnStretch(0, 1);
-        frame_buttons = new QFrame(centralwidget);
+        l_PName3->raise();
+        label_15->raise();
+        label_16->raise();
+        l_PScore2->raise();
+        label_18->raise();
+        label_19->raise();
+        label_20->raise();
+        l_PName1->raise();
+        l_PName2->raise();
+        l_PScore1->raise();
+        l_PScore3->raise();
+        label_21->raise();
+        desk->raise();
+        frame_buttons = new QFrame(gamePage);
         frame_buttons->setObjectName("frame_buttons");
         frame_buttons->setEnabled(true);
         frame_buttons->setGeometry(QRect(0, 0, 800, 640));
@@ -422,66 +658,70 @@ public:
 "    border: 0px solid white;\n"
 "    width: 16px;\n"
 "    height: 16px;\n"
+"}\n"
+"\n"
+"QFrame{\n"
+"	background-color: rgba(255, 255, 255, 0.0);\n"
 "}"));
         frame_buttons->setFrameShape(QFrame::StyledPanel);
         frame_buttons->setFrameShadow(QFrame::Raised);
         a5_pb = new QPushButton(frame_buttons);
         a5_pb->setObjectName("a5_pb");
-        a5_pb->setGeometry(QRect(259, 502, 16, 16));
+        a5_pb->setGeometry(QRect(260, 503, 16, 16));
         b11_pb = new QPushButton(frame_buttons);
         b11_pb->setObjectName("b11_pb");
-        b11_pb->setGeometry(QRect(392, 162, 16, 16));
+        b11_pb->setGeometry(QRect(392, 157, 16, 16));
         b3_pb = new QPushButton(frame_buttons);
         b3_pb->setObjectName("b3_pb");
-        b3_pb->setGeometry(QRect(359, 504, 16, 16));
+        b3_pb->setGeometry(QRect(359, 505, 16, 16));
         c8_pb = new QPushButton(frame_buttons);
         c8_pb->setObjectName("c8_pb");
-        c8_pb->setGeometry(QRect(161, 396, 16, 16));
+        c8_pb->setGeometry(QRect(161, 393, 16, 16));
         a8_pb = new QPushButton(frame_buttons);
         a8_pb->setObjectName("a8_pb");
-        a8_pb->setGeometry(QRect(151, 461, 16, 16));
+        a8_pb->setGeometry(QRect(152, 460, 16, 16));
         c2_pb = new QPushButton(frame_buttons);
         c2_pb->setObjectName("c2_pb");
-        c2_pb->setGeometry(QRect(423, 503, 16, 16));
+        c2_pb->setGeometry(QRect(424, 503, 16, 16));
         h8_pb = new QPushButton(frame_buttons);
         h8_pb->setObjectName("h8_pb");
-        h8_pb->setGeometry(QRect(151, 231, 16, 16));
+        h8_pb->setGeometry(QRect(151, 226, 16, 16));
         d6_pb = new QPushButton(frame_buttons);
         d6_pb->setObjectName("d6_pb");
-        d6_pb->setGeometry(QRect(283, 367, 16, 16));
+        d6_pb->setGeometry(QRect(285, 364, 16, 16));
         b4_pb = new QPushButton(frame_buttons);
         b4_pb->setObjectName("b4_pb");
-        b4_pb->setGeometry(QRect(325, 477, 16, 16));
+        b4_pb->setGeometry(QRect(326, 477, 16, 16));
         e11_pb = new QPushButton(frame_buttons);
         e11_pb->setObjectName("e11_pb");
-        e11_pb->setGeometry(QRect(493, 234, 16, 16));
+        e11_pb->setGeometry(QRect(495, 229, 16, 16));
         f1_pb = new QPushButton(frame_buttons);
         f1_pb->setObjectName("f1_pb");
-        f1_pb->setGeometry(QRect(560, 490, 16, 16));
+        f1_pb->setGeometry(QRect(561, 489, 16, 16));
         d3_pb = new QPushButton(frame_buttons);
         d3_pb->setObjectName("d3_pb");
-        d3_pb->setGeometry(QRect(422, 434, 16, 16));
+        d3_pb->setGeometry(QRect(425, 432, 16, 16));
         g8_pb = new QPushButton(frame_buttons);
         g8_pb->setObjectName("g8_pb");
-        g8_pb->setGeometry(QRect(154, 264, 16, 16));
+        g8_pb->setGeometry(QRect(154, 259, 16, 16));
         e9_pb = new QPushButton(frame_buttons);
         e9_pb->setObjectName("e9_pb");
-        e9_pb->setGeometry(QRect(436, 323, 16, 16));
+        e9_pb->setGeometry(QRect(438, 319, 16, 16));
         a12_pb = new QPushButton(frame_buttons);
         a12_pb->setObjectName("a12_pb");
-        a12_pb->setGeometry(QRect(390, 115, 16, 16));
+        a12_pb->setGeometry(QRect(390, 109, 16, 16));
         d1_pb = new QPushButton(frame_buttons);
         d1_pb->setObjectName("d1_pb");
-        d1_pb->setGeometry(QRect(488, 520, 16, 16));
+        d1_pb->setGeometry(QRect(489, 520, 16, 16));
         c1_pb = new QPushButton(frame_buttons);
         c1_pb->setObjectName("c1_pb");
         c1_pb->setGeometry(QRect(457, 539, 16, 16));
         f12_pb = new QPushButton(frame_buttons);
         f12_pb->setObjectName("f12_pb");
-        f12_pb->setGeometry(QRect(558, 204, 16, 16));
+        f12_pb->setGeometry(QRect(558, 199, 16, 16));
         a9_pb = new QPushButton(frame_buttons);
         a9_pb->setObjectName("a9_pb");
-        a9_pb->setGeometry(QRect(294, 173, 16, 16));
+        a9_pb->setGeometry(QRect(294, 165, 16, 16));
         c3_pb = new QPushButton(frame_buttons);
         c3_pb->setObjectName("c3_pb");
         c3_pb->setGeometry(QRect(391, 468, 16, 16));
@@ -489,78 +729,78 @@ public:
         c3_pb->setFlat(false);
         b6_pb = new QPushButton(frame_buttons);
         b6_pb->setObjectName("b6_pb");
-        b6_pb->setGeometry(QRect(244, 448, 16, 16));
+        b6_pb->setGeometry(QRect(245, 449, 16, 16));
         c12_pb = new QPushButton(frame_buttons);
         c12_pb->setObjectName("c12_pb");
-        c12_pb->setGeometry(QRect(454, 154, 16, 16));
+        c12_pb->setGeometry(QRect(454, 148, 16, 16));
         e10_pb = new QPushButton(frame_buttons);
         e10_pb->setObjectName("e10_pb");
-        e10_pb->setGeometry(QRect(464, 278, 16, 16));
+        e10_pb->setGeometry(QRect(467, 274, 16, 16));
         f7_pb = new QPushButton(frame_buttons);
         f7_pb->setObjectName("f7_pb");
-        f7_pb->setGeometry(QRect(212, 291, 16, 16));
+        f7_pb->setGeometry(QRect(212, 287, 16, 16));
         d5_pb = new QPushButton(frame_buttons);
         d5_pb->setObjectName("d5_pb");
-        d5_pb->setGeometry(QRect(343, 369, 16, 16));
+        d5_pb->setGeometry(QRect(345, 365, 16, 16));
         d5_pb->setStyleSheet(QString::fromUtf8(""));
         e7_pb = new QPushButton(frame_buttons);
         e7_pb->setObjectName("e7_pb");
-        e7_pb->setGeometry(QRect(225, 327, 16, 16));
+        e7_pb->setGeometry(QRect(225, 324, 16, 16));
         a2_pb = new QPushButton(frame_buttons);
         a2_pb->setObjectName("a2_pb");
-        a2_pb->setGeometry(QRect(357, 558, 16, 16));
+        a2_pb->setGeometry(QRect(359, 559, 16, 16));
         e6_pb = new QPushButton(frame_buttons);
         e6_pb->setObjectName("e6_pb");
-        e6_pb->setGeometry(QRect(285, 324, 16, 16));
+        e6_pb->setGeometry(QRect(285, 321, 16, 16));
         d9_pb = new QPushButton(frame_buttons);
         d9_pb->setObjectName("d9_pb");
-        d9_pb->setGeometry(QRect(390, 304, 16, 16));
+        d9_pb->setGeometry(QRect(391, 298, 16, 16));
         a10_pb = new QPushButton(frame_buttons);
         a10_pb->setObjectName("a10_pb");
-        a10_pb->setGeometry(QRect(328, 154, 16, 16));
+        a10_pb->setGeometry(QRect(328, 146, 16, 16));
         a11_pb = new QPushButton(frame_buttons);
         a11_pb->setObjectName("a11_pb");
-        a11_pb->setGeometry(QRect(359, 135, 16, 16));
+        a11_pb->setGeometry(QRect(360, 128, 16, 16));
         b5_pb = new QPushButton(frame_buttons);
         b5_pb->setObjectName("b5_pb");
-        b5_pb->setGeometry(QRect(287, 459, 16, 16));
+        b5_pb->setGeometry(QRect(287, 460, 16, 16));
         a3_pb = new QPushButton(frame_buttons);
         a3_pb->setObjectName("a3_pb");
-        a3_pb->setGeometry(QRect(324, 539, 16, 16));
+        a3_pb->setGeometry(QRect(327, 539, 16, 16));
         c7_pb = new QPushButton(frame_buttons);
         c7_pb->setObjectName("c7_pb");
-        c7_pb->setGeometry(QRect(211, 401, 16, 16));
+        c7_pb->setGeometry(QRect(213, 399, 16, 16));
         f8_pb = new QPushButton(frame_buttons);
         f8_pb->setObjectName("f8_pb");
-        f8_pb->setGeometry(QRect(158, 296, 16, 16));
+        f8_pb->setGeometry(QRect(158, 293, 16, 16));
         d8_pb = new QPushButton(frame_buttons);
         d8_pb->setObjectName("d8_pb");
-        d8_pb->setGeometry(QRect(163, 363, 16, 16));
+        d8_pb->setGeometry(QRect(163, 359, 16, 16));
         h2_pb = new QPushButton(frame_buttons);
         h2_pb->setObjectName("h2_pb");
-        h2_pb->setGeometry(QRect(626, 430, 16, 16));
+        h2_pb->setGeometry(QRect(628, 428, 16, 16));
         f5_pb = new QPushButton(frame_buttons);
         f5_pb->setObjectName("f5_pb");
-        f5_pb->setGeometry(QRect(317, 279, 16, 16));
+        f5_pb->setGeometry(QRect(317, 274, 16, 16));
         b2_pb = new QPushButton(frame_buttons);
         b2_pb->setObjectName("b2_pb");
-        b2_pb->setGeometry(QRect(390, 531, 16, 16));
+        b2_pb->setGeometry(QRect(392, 531, 16, 16));
         d4_pb = new QPushButton(frame_buttons);
         d4_pb->setObjectName("d4_pb");
-        d4_pb->setGeometry(QRect(392, 392, 16, 16));
+        d4_pb->setGeometry(QRect(392, 388, 16, 16));
         b10_pb = new QPushButton(frame_buttons);
         b10_pb->setObjectName("b10_pb");
-        b10_pb->setGeometry(QRect(360, 190, 16, 16));
+        b10_pb->setGeometry(QRect(359, 183, 16, 16));
         h7_pb = new QPushButton(frame_buttons);
         h7_pb->setObjectName("h7_pb");
-        h7_pb->setGeometry(QRect(189, 216, 16, 16));
+        h7_pb->setGeometry(QRect(189, 212, 16, 16));
         d11_pb = new QPushButton(frame_buttons);
         d11_pb->setObjectName("d11_pb");
-        d11_pb->setGeometry(QRect(455, 217, 16, 16));
+        d11_pb->setGeometry(QRect(456, 211, 16, 16));
         b1_pb = new QPushButton(frame_buttons);
         b1_pb->setObjectName("b1_pb");
         b1_pb->setEnabled(true);
-        b1_pb->setGeometry(QRect(422, 557, 16, 16));
+        b1_pb->setGeometry(QRect(424, 558, 16, 16));
         b1_pb->setIconSize(QSize(16, 16));
         b1_pb->setCheckable(false);
         b1_pb->setChecked(false);
@@ -572,7 +812,7 @@ public:
         c4_pb->setGeometry(QRect(359, 434, 16, 16));
         g5_pb = new QPushButton(frame_buttons);
         g5_pb->setObjectName("g5_pb");
-        g5_pb->setGeometry(QRect(289, 234, 16, 16));
+        g5_pb->setGeometry(QRect(289, 228, 16, 16));
         e1_pb = new QPushButton(frame_buttons);
         e1_pb->setObjectName("e1_pb");
         e1_pb->setGeometry(QRect(523, 504, 16, 16));
@@ -581,37 +821,37 @@ public:
         d2_pb->setGeometry(QRect(457, 477, 16, 16));
         e4_pb = new QPushButton(frame_buttons);
         e4_pb->setObjectName("e4_pb");
-        e4_pb->setGeometry(QRect(436, 368, 16, 16));
+        e4_pb->setGeometry(QRect(438, 366, 16, 16));
         g7_pb = new QPushButton(frame_buttons);
         g7_pb->setObjectName("g7_pb");
-        g7_pb->setGeometry(QRect(199, 254, 16, 16));
+        g7_pb->setGeometry(QRect(200, 250, 16, 16));
         h1_pb = new QPushButton(frame_buttons);
         h1_pb->setObjectName("h1_pb");
-        h1_pb->setGeometry(QRect(631, 463, 16, 16));
+        h1_pb->setGeometry(QRect(632, 461, 16, 16));
         g6_pb = new QPushButton(frame_buttons);
         g6_pb->setObjectName("g6_pb");
-        g6_pb->setGeometry(QRect(244, 244, 16, 16));
+        g6_pb->setGeometry(QRect(244, 240, 16, 16));
         h6_pb = new QPushButton(frame_buttons);
         h6_pb->setObjectName("h6_pb");
-        h6_pb->setGeometry(QRect(224, 204, 16, 16));
+        h6_pb->setGeometry(QRect(224, 198, 16, 16));
         e8_pb = new QPushButton(frame_buttons);
         e8_pb->setObjectName("e8_pb");
-        e8_pb->setGeometry(QRect(162, 330, 16, 16));
+        e8_pb->setGeometry(QRect(162, 326, 16, 16));
         b9_pb = new QPushButton(frame_buttons);
         b9_pb->setObjectName("b9_pb");
-        b9_pb->setGeometry(QRect(327, 216, 16, 16));
+        b9_pb->setGeometry(QRect(327, 209, 16, 16));
         c6_pb = new QPushButton(frame_buttons);
         c6_pb->setObjectName("c6_pb");
-        c6_pb->setGeometry(QRect(264, 408, 16, 16));
+        c6_pb->setGeometry(QRect(265, 405, 16, 16));
         b12_pb = new QPushButton(frame_buttons);
         b12_pb->setObjectName("b12_pb");
-        b12_pb->setGeometry(QRect(423, 134, 16, 16));
+        b12_pb->setGeometry(QRect(424, 129, 16, 16));
         g12_pb = new QPushButton(frame_buttons);
         g12_pb->setObjectName("g12_pb");
-        g12_pb->setGeometry(QRect(594, 217, 16, 16));
+        g12_pb->setGeometry(QRect(594, 212, 16, 16));
         e12_pb = new QPushButton(frame_buttons);
         e12_pb->setObjectName("e12_pb");
-        e12_pb->setGeometry(QRect(522, 191, 16, 16));
+        e12_pb->setGeometry(QRect(522, 185, 16, 16));
         e12_pb->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "	background-color: rgba(0, 0, 0, 0.5);\n"
 "    border-radius: 8px;\n"
@@ -621,66 +861,66 @@ public:
 "}"));
         c11_pb = new QPushButton(frame_buttons);
         c11_pb->setObjectName("c11_pb");
-        c11_pb->setGeometry(QRect(423, 190, 16, 16));
+        c11_pb->setGeometry(QRect(424, 182, 16, 16));
         d10_pb = new QPushButton(frame_buttons);
         d10_pb->setObjectName("d10_pb");
-        d10_pb->setGeometry(QRect(423, 258, 16, 16));
+        d10_pb->setGeometry(QRect(424, 254, 16, 16));
         e5_pb = new QPushButton(frame_buttons);
         e5_pb->setObjectName("e5_pb");
-        e5_pb->setGeometry(QRect(344, 324, 16, 16));
+        e5_pb->setGeometry(QRect(346, 319, 16, 16));
         a6_pb = new QPushButton(frame_buttons);
         a6_pb->setObjectName("a6_pb");
-        a6_pb->setGeometry(QRect(223, 490, 16, 16));
+        a6_pb->setGeometry(QRect(225, 489, 16, 16));
         b8_pb = new QPushButton(frame_buttons);
         b8_pb->setObjectName("b8_pb");
-        b8_pb->setGeometry(QRect(156, 429, 16, 16));
+        b8_pb->setGeometry(QRect(157, 427, 16, 16));
         f6_pb = new QPushButton(frame_buttons);
         f6_pb->setObjectName("f6_pb");
-        f6_pb->setGeometry(QRect(264, 284, 16, 16));
+        f6_pb->setGeometry(QRect(264, 281, 16, 16));
         a4_pb = new QPushButton(frame_buttons);
         a4_pb->setObjectName("a4_pb");
-        a4_pb->setGeometry(QRect(293, 519, 16, 16));
+        a4_pb->setGeometry(QRect(294, 519, 16, 16));
         d12_pb = new QPushButton(frame_buttons);
         d12_pb->setObjectName("d12_pb");
-        d12_pb->setGeometry(QRect(488, 173, 16, 16));
+        d12_pb->setGeometry(QRect(488, 167, 16, 16));
         a1_pb = new QPushButton(frame_buttons);
         a1_pb->setObjectName("a1_pb");
         a1_pb->setGeometry(QRect(391, 578, 16, 16));
         c9_pb = new QPushButton(frame_buttons);
         c9_pb->setObjectName("c9_pb");
-        c9_pb->setGeometry(QRect(360, 260, 16, 16));
+        c9_pb->setGeometry(QRect(360, 253, 16, 16));
         d7_pb = new QPushButton(frame_buttons);
         d7_pb->setObjectName("d7_pb");
-        d7_pb->setGeometry(QRect(223, 366, 16, 16));
+        d7_pb->setGeometry(QRect(224, 362, 16, 16));
         c5_pb = new QPushButton(frame_buttons);
         c5_pb->setObjectName("c5_pb");
         c5_pb->setGeometry(QRect(316, 412, 16, 16));
         g1_pb = new QPushButton(frame_buttons);
         g1_pb->setObjectName("g1_pb");
-        g1_pb->setGeometry(QRect(595, 476, 16, 16));
+        g1_pb->setGeometry(QRect(596, 475, 16, 16));
         h5_pb = new QPushButton(frame_buttons);
         h5_pb->setObjectName("h5_pb");
-        h5_pb->setGeometry(QRect(261, 191, 16, 16));
+        h5_pb->setGeometry(QRect(261, 181, 16, 16));
         c10_pb = new QPushButton(frame_buttons);
         c10_pb->setObjectName("c10_pb");
-        c10_pb->setGeometry(QRect(391, 223, 16, 16));
+        c10_pb->setGeometry(QRect(391, 219, 16, 16));
         h12_pb = new QPushButton(frame_buttons);
         h12_pb->setObjectName("h12_pb");
-        h12_pb->setGeometry(QRect(632, 230, 16, 16));
+        h12_pb->setGeometry(QRect(632, 226, 16, 16));
         h4_pb = new QPushButton(frame_buttons);
         h4_pb->setObjectName("h4_pb");
-        h4_pb->setGeometry(QRect(620, 363, 16, 16));
+        h4_pb->setGeometry(QRect(621, 360, 16, 16));
         h3_pb = new QPushButton(frame_buttons);
         h3_pb->setObjectName("h3_pb");
-        h3_pb->setGeometry(QRect(623, 396, 16, 16));
+        h3_pb->setGeometry(QRect(624, 393, 16, 16));
         h9_pb = new QPushButton(frame_buttons);
         h9_pb->setObjectName("h9_pb");
-        h9_pb->setGeometry(QRect(620, 330, 16, 16));
+        h9_pb->setGeometry(QRect(621, 327, 16, 16));
         h9_pb->setTabletTracking(false);
         h9_pb->setAutoFillBackground(false);
         h10_pb = new QPushButton(frame_buttons);
         h10_pb->setObjectName("h10_pb");
-        h10_pb->setGeometry(QRect(625, 297, 16, 16));
+        h10_pb->setGeometry(QRect(625, 293, 16, 16));
         h10_pb->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "	background-color: rgba(0, 0, 0, 0.5);\n"
 "    border-radius: 8px;\n"
@@ -690,49 +930,49 @@ public:
 "}"));
         h11_pb = new QPushButton(frame_buttons);
         h11_pb->setObjectName("h11_pb");
-        h11_pb->setGeometry(QRect(628, 264, 16, 16));
+        h11_pb->setGeometry(QRect(629, 260, 16, 16));
         g4_pb = new QPushButton(frame_buttons);
         g4_pb->setObjectName("g4_pb");
-        g4_pb->setGeometry(QRect(559, 364, 16, 16));
+        g4_pb->setGeometry(QRect(560, 362, 16, 16));
         f4_pb = new QPushButton(frame_buttons);
         f4_pb->setObjectName("f4_pb");
-        f4_pb->setGeometry(QRect(498, 367, 16, 16));
+        f4_pb->setGeometry(QRect(499, 364, 16, 16));
         g3_pb = new QPushButton(frame_buttons);
         g3_pb->setObjectName("g3_pb");
-        g3_pb->setGeometry(QRect(571, 402, 16, 16));
+        g3_pb->setGeometry(QRect(571, 401, 16, 16));
         g2_pb = new QPushButton(frame_buttons);
         g2_pb->setObjectName("g2_pb");
-        g2_pb->setGeometry(QRect(583, 439, 16, 16));
+        g2_pb->setGeometry(QRect(583, 437, 16, 16));
         f2_pb = new QPushButton(frame_buttons);
         f2_pb->setObjectName("f2_pb");
-        f2_pb->setGeometry(QRect(538, 449, 16, 16));
+        f2_pb->setGeometry(QRect(539, 447, 16, 16));
         e2_pb = new QPushButton(frame_buttons);
         e2_pb->setObjectName("e2_pb");
-        e2_pb->setGeometry(QRect(494, 458, 16, 16));
+        e2_pb->setGeometry(QRect(495, 457, 16, 16));
         e3_pb = new QPushButton(frame_buttons);
         e3_pb->setObjectName("e3_pb");
-        e3_pb->setGeometry(QRect(465, 413, 16, 16));
+        e3_pb->setGeometry(QRect(466, 412, 16, 16));
         f3_pb = new QPushButton(frame_buttons);
         f3_pb->setObjectName("f3_pb");
-        f3_pb->setGeometry(QRect(517, 407, 16, 16));
+        f3_pb->setGeometry(QRect(519, 407, 16, 16));
         f9_pb = new QPushButton(frame_buttons);
         f9_pb->setObjectName("f9_pb");
-        f9_pb->setGeometry(QRect(497, 326, 16, 16));
+        f9_pb->setGeometry(QRect(498, 322, 16, 16));
         g9_pb = new QPushButton(frame_buttons);
         g9_pb->setObjectName("g9_pb");
-        g9_pb->setGeometry(QRect(558, 327, 16, 16));
+        g9_pb->setGeometry(QRect(558, 325, 16, 16));
         f10_pb = new QPushButton(frame_buttons);
         f10_pb->setObjectName("f10_pb");
-        f10_pb->setGeometry(QRect(518, 285, 16, 16));
+        f10_pb->setGeometry(QRect(519, 280, 16, 16));
         g10_pb = new QPushButton(frame_buttons);
         g10_pb->setObjectName("g10_pb");
-        g10_pb->setGeometry(QRect(570, 291, 16, 16));
+        g10_pb->setGeometry(QRect(571, 288, 16, 16));
         f11_pb = new QPushButton(frame_buttons);
         f11_pb->setObjectName("f11_pb");
-        f11_pb->setGeometry(QRect(539, 245, 16, 16));
+        f11_pb->setGeometry(QRect(539, 240, 16, 16));
         g11_pb = new QPushButton(frame_buttons);
         g11_pb->setObjectName("g11_pb");
-        g11_pb->setGeometry(QRect(584, 254, 16, 16));
+        g11_pb->setGeometry(QRect(584, 250, 16, 16));
         g11_pb->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "	background-color: rgba(0, 0, 0, 0.5);\n"
 "    border-radius: 8px;\n"
@@ -742,24 +982,29 @@ public:
 "}"));
         b7_pb = new QPushButton(frame_buttons);
         b7_pb->setObjectName("b7_pb");
-        b7_pb->setGeometry(QRect(200, 439, 16, 16));
+        b7_pb->setGeometry(QRect(201, 437, 16, 16));
         a7_pb = new QPushButton(frame_buttons);
         a7_pb->setObjectName("a7_pb");
-        a7_pb->setGeometry(QRect(187, 476, 16, 16));
-        frame_figures = new QFrame(centralwidget);
+        a7_pb->setGeometry(QRect(188, 474, 16, 16));
+        frame_figures = new QFrame(gamePage);
         frame_figures->setObjectName("frame_figures");
-        frame_figures->setGeometry(QRect(0, 0, 800, 640));
+        frame_figures->setEnabled(true);
+        frame_figures->setGeometry(QRect(0, 0, 800, 637));
         frame_figures->setStyleSheet(QString::fromUtf8("QPushButton{\n"
-"	background-color: rgba(255, 255, 255, 0.0);\n"
+"	background-color: rgba(255, 255, 255, 1.0);\n"
 "    border-radius: 8px;\n"
 "    width: 16px;\n"
 "    height: 16px;\n"
+"}\n"
+"\n"
+"QFrame{\n"
+"	background-color: rgba(255, 255, 255, 0.0);\n"
 "}"));
         frame_figures->setFrameShape(QFrame::StyledPanel);
         frame_figures->setFrameShadow(QFrame::Raised);
         d5_l = new QPushButton(frame_figures);
         d5_l->setObjectName("d5_l");
-        d5_l->setGeometry(QRect(335, 362, 32, 32));
+        d5_l->setGeometry(QRect(337, 357, 32, 32));
         d5_l->setStyleSheet(QString::fromUtf8(""));
         d5_l->setIconSize(QSize(32, 32));
         b3_l = new QPushButton(frame_figures);
@@ -768,127 +1013,130 @@ public:
         b3_l->setIconSize(QSize(32, 32));
         d7_l = new QPushButton(frame_figures);
         d7_l->setObjectName("d7_l");
-        d7_l->setGeometry(QRect(216, 360, 32, 32));
+        d7_l->setGeometry(QRect(216, 354, 32, 32));
         d7_l->setIconSize(QSize(32, 32));
         h3_l = new QPushButton(frame_figures);
         h3_l->setObjectName("h3_l");
-        h3_l->setGeometry(QRect(615, 389, 32, 32));
+        h3_l->setGeometry(QRect(616, 385, 32, 32));
         h3_l->setIconSize(QSize(32, 32));
         c8_l = new QPushButton(frame_figures);
         c8_l->setObjectName("c8_l");
-        c8_l->setGeometry(QRect(153, 388, 32, 32));
+        c8_l->setGeometry(QRect(153, 385, 32, 32));
         c8_l->setIconSize(QSize(32, 32));
         e3_l = new QPushButton(frame_figures);
         e3_l->setObjectName("e3_l");
-        e3_l->setGeometry(QRect(458, 407, 32, 32));
+        e3_l->setGeometry(QRect(458, 403, 32, 32));
         e3_l->setIconSize(QSize(32, 32));
         g4_l = new QPushButton(frame_figures);
         g4_l->setObjectName("g4_l");
-        g4_l->setGeometry(QRect(551, 357, 32, 32));
+        g4_l->setGeometry(QRect(551, 354, 32, 32));
         g4_l->setIconSize(QSize(32, 32));
         b9_l = new QPushButton(frame_figures);
         b9_l->setObjectName("b9_l");
-        b9_l->setGeometry(QRect(319, 208, 32, 32));
+        b9_l->setGeometry(QRect(319, 201, 32, 32));
         b9_l->setIconSize(QSize(32, 32));
         b11_l = new QPushButton(frame_figures);
         b11_l->setObjectName("b11_l");
-        b11_l->setGeometry(QRect(384, 155, 32, 32));
+        b11_l->setGeometry(QRect(384, 148, 32, 32));
         b11_l->setIconSize(QSize(32, 32));
         e11_l = new QPushButton(frame_figures);
         e11_l->setObjectName("e11_l");
-        e11_l->setGeometry(QRect(486, 227, 32, 32));
+        e11_l->setGeometry(QRect(487, 220, 32, 32));
         e11_l->setIconSize(QSize(32, 32));
         h8_l = new QPushButton(frame_figures);
         h8_l->setObjectName("h8_l");
-        h8_l->setGeometry(QRect(143, 224, 32, 32));
+        h8_l->setGeometry(QRect(143, 218, 32, 32));
         h8_l->setIconSize(QSize(32, 32));
         f6_l = new QPushButton(frame_figures);
         f6_l->setObjectName("f6_l");
-        f6_l->setGeometry(QRect(256, 277, 32, 32));
+        f6_l->setGeometry(QRect(256, 273, 32, 32));
         f6_l->setIconSize(QSize(32, 32));
         g5_l = new QPushButton(frame_figures);
         g5_l->setObjectName("g5_l");
-        g5_l->setGeometry(QRect(281, 226, 32, 32));
+        g5_l->setGeometry(QRect(281, 220, 32, 32));
         g5_l->setIconSize(QSize(32, 32));
         a1_l = new QPushButton(frame_figures);
         a1_l->setObjectName("a1_l");
-        a1_l->setGeometry(QRect(383, 572, 32, 32));
+        a1_l->setGeometry(QRect(383, 571, 32, 32));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("resources/g1.png"), QSize(), QIcon::Normal, QIcon::Off);
+        a1_l->setIcon(icon);
         a1_l->setIconSize(QSize(32, 32));
         c2_l = new QPushButton(frame_figures);
         c2_l->setObjectName("c2_l");
-        c2_l->setGeometry(QRect(415, 495, 32, 32));
+        c2_l->setGeometry(QRect(416, 495, 32, 32));
         c2_l->setIconSize(QSize(32, 32));
         g3_l = new QPushButton(frame_figures);
         g3_l->setObjectName("g3_l");
-        g3_l->setGeometry(QRect(563, 395, 32, 32));
+        g3_l->setGeometry(QRect(563, 392, 32, 32));
         g3_l->setIconSize(QSize(32, 32));
         c7_l = new QPushButton(frame_figures);
         c7_l->setObjectName("c7_l");
-        c7_l->setGeometry(QRect(204, 394, 32, 32));
+        c7_l->setGeometry(QRect(205, 391, 32, 32));
         c7_l->setIconSize(QSize(32, 32));
         f12_l = new QPushButton(frame_figures);
         f12_l->setObjectName("f12_l");
-        f12_l->setGeometry(QRect(550, 197, 32, 32));
+        f12_l->setGeometry(QRect(550, 190, 32, 32));
         f12_l->setIconSize(QSize(32, 32));
         a8_l = new QPushButton(frame_figures);
         a8_l->setObjectName("a8_l");
-        a8_l->setGeometry(QRect(144, 454, 32, 32));
+        a8_l->setGeometry(QRect(144, 452, 32, 32));
         a8_l->setIconSize(QSize(32, 32));
         h12_l = new QPushButton(frame_figures);
         h12_l->setObjectName("h12_l");
-        h12_l->setGeometry(QRect(624, 223, 32, 32));
+        h12_l->setGeometry(QRect(624, 218, 32, 32));
         h12_l->setIconSize(QSize(32, 32));
         d10_l = new QPushButton(frame_figures);
         d10_l->setObjectName("d10_l");
-        d10_l->setGeometry(QRect(416, 251, 32, 32));
+        d10_l->setGeometry(QRect(416, 246, 32, 32));
         d10_l->setIconSize(QSize(32, 32));
         a3_l = new QPushButton(frame_figures);
         a3_l->setObjectName("a3_l");
-        a3_l->setGeometry(QRect(317, 532, 32, 32));
+        a3_l->setGeometry(QRect(319, 531, 32, 32));
         a3_l->setIconSize(QSize(32, 32));
         e10_l = new QPushButton(frame_figures);
         e10_l->setObjectName("e10_l");
-        e10_l->setGeometry(QRect(456, 271, 32, 32));
+        e10_l->setGeometry(QRect(459, 266, 32, 32));
         e10_l->setIconSize(QSize(32, 32));
         h2_l = new QPushButton(frame_figures);
         h2_l->setObjectName("h2_l");
-        h2_l->setGeometry(QRect(618, 423, 32, 32));
+        h2_l->setGeometry(QRect(620, 419, 32, 32));
         h2_l->setIconSize(QSize(32, 32));
         a7_l = new QPushButton(frame_figures);
         a7_l->setObjectName("a7_l");
-        a7_l->setGeometry(QRect(179, 469, 32, 32));
+        a7_l->setGeometry(QRect(180, 466, 32, 32));
         a7_l->setIconSize(QSize(32, 32));
         b10_l = new QPushButton(frame_figures);
         b10_l->setObjectName("b10_l");
-        b10_l->setGeometry(QRect(353, 182, 32, 32));
+        b10_l->setGeometry(QRect(351, 175, 32, 32));
         b10_l->setIconSize(QSize(32, 32));
         d6_l = new QPushButton(frame_figures);
         d6_l->setObjectName("d6_l");
-        d6_l->setGeometry(QRect(275, 360, 32, 32));
+        d6_l->setGeometry(QRect(277, 356, 32, 32));
         d6_l->setIconSize(QSize(32, 32));
         e4_l = new QPushButton(frame_figures);
         e4_l->setObjectName("e4_l");
-        e4_l->setGeometry(QRect(429, 360, 32, 32));
+        e4_l->setGeometry(QRect(430, 357, 32, 32));
         e4_l->setIconSize(QSize(32, 32));
         g12_l = new QPushButton(frame_figures);
         g12_l->setObjectName("g12_l");
-        g12_l->setGeometry(QRect(586, 210, 32, 32));
+        g12_l->setGeometry(QRect(587, 205, 32, 30));
         g12_l->setIconSize(QSize(32, 32));
         g6_l = new QPushButton(frame_figures);
         g6_l->setObjectName("g6_l");
-        g6_l->setGeometry(QRect(236, 236, 32, 32));
+        g6_l->setGeometry(QRect(236, 232, 32, 32));
         g6_l->setIconSize(QSize(32, 32));
         f2_l = new QPushButton(frame_figures);
         f2_l->setObjectName("f2_l");
-        f2_l->setGeometry(QRect(530, 442, 32, 32));
+        f2_l->setGeometry(QRect(531, 439, 32, 32));
         f2_l->setIconSize(QSize(32, 32));
         b8_l = new QPushButton(frame_figures);
         b8_l->setObjectName("b8_l");
-        b8_l->setGeometry(QRect(149, 422, 32, 32));
+        b8_l->setGeometry(QRect(149, 419, 32, 32));
         b8_l->setIconSize(QSize(32, 32));
         a10_l = new QPushButton(frame_figures);
         a10_l->setObjectName("a10_l");
-        a10_l->setGeometry(QRect(320, 147, 32, 32));
+        a10_l->setGeometry(QRect(320, 138, 32, 32));
         a10_l->setIconSize(QSize(32, 32));
         b5_l = new QPushButton(frame_figures);
         b5_l->setObjectName("b5_l");
@@ -896,103 +1144,103 @@ public:
         b5_l->setIconSize(QSize(32, 32));
         c6_l = new QPushButton(frame_figures);
         c6_l->setObjectName("c6_l");
-        c6_l->setGeometry(QRect(256, 401, 32, 32));
+        c6_l->setGeometry(QRect(257, 397, 32, 32));
         c6_l->setIconSize(QSize(32, 32));
         d3_l = new QPushButton(frame_figures);
         d3_l->setObjectName("d3_l");
-        d3_l->setGeometry(QRect(414, 427, 32, 32));
+        d3_l->setGeometry(QRect(417, 424, 32, 32));
         d3_l->setIconSize(QSize(32, 32));
         d9_l = new QPushButton(frame_figures);
         d9_l->setObjectName("d9_l");
-        d9_l->setGeometry(QRect(382, 297, 32, 32));
+        d9_l->setGeometry(QRect(383, 290, 32, 32));
         d9_l->setIconSize(QSize(32, 32));
         e8_l = new QPushButton(frame_figures);
         e8_l->setObjectName("e8_l");
-        e8_l->setGeometry(QRect(154, 322, 32, 32));
+        e8_l->setGeometry(QRect(154, 318, 32, 32));
         e8_l->setIconSize(QSize(32, 32));
         b7_l = new QPushButton(frame_figures);
         b7_l->setObjectName("b7_l");
-        b7_l->setGeometry(QRect(192, 433, 32, 32));
+        b7_l->setGeometry(QRect(192, 429, 32, 32));
         b7_l->setIconSize(QSize(32, 32));
         f9_l = new QPushButton(frame_figures);
         f9_l->setObjectName("f9_l");
-        f9_l->setGeometry(QRect(489, 319, 32, 32));
+        f9_l->setGeometry(QRect(490, 314, 32, 32));
         f9_l->setIconSize(QSize(32, 32));
         h11_l = new QPushButton(frame_figures);
         h11_l->setObjectName("h11_l");
-        h11_l->setGeometry(QRect(621, 257, 32, 32));
+        h11_l->setGeometry(QRect(621, 251, 32, 32));
         h11_l->setIconSize(QSize(32, 32));
         f5_l = new QPushButton(frame_figures);
         f5_l->setObjectName("f5_l");
-        f5_l->setGeometry(QRect(309, 272, 32, 32));
+        f5_l->setGeometry(QRect(309, 266, 32, 32));
         f5_l->setIconSize(QSize(32, 32));
         g10_l = new QPushButton(frame_figures);
         g10_l->setObjectName("g10_l");
-        g10_l->setGeometry(QRect(563, 284, 32, 32));
+        g10_l->setGeometry(QRect(563, 279, 32, 32));
         g10_l->setIconSize(QSize(32, 32));
         g2_l = new QPushButton(frame_figures);
         g2_l->setObjectName("g2_l");
-        g2_l->setGeometry(QRect(575, 432, 32, 32));
+        g2_l->setGeometry(QRect(575, 429, 32, 32));
         g2_l->setIconSize(QSize(32, 32));
         e2_l = new QPushButton(frame_figures);
         e2_l->setObjectName("e2_l");
-        e2_l->setGeometry(QRect(486, 451, 32, 32));
+        e2_l->setGeometry(QRect(487, 449, 32, 32));
         e2_l->setIconSize(QSize(32, 32));
         h7_l = new QPushButton(frame_figures);
         h7_l->setObjectName("h7_l");
-        h7_l->setGeometry(QRect(181, 209, 32, 32));
+        h7_l->setGeometry(QRect(181, 203, 32, 32));
         h7_l->setIconSize(QSize(32, 32));
         c10_l = new QPushButton(frame_figures);
         c10_l->setObjectName("c10_l");
-        c10_l->setGeometry(QRect(383, 216, 32, 32));
+        c10_l->setGeometry(QRect(383, 211, 32, 32));
         c10_l->setIconSize(QSize(32, 32));
         a11_l = new QPushButton(frame_figures);
         a11_l->setObjectName("a11_l");
-        a11_l->setGeometry(QRect(352, 127, 32, 32));
+        a11_l->setGeometry(QRect(352, 120, 32, 32));
         a11_l->setIconSize(QSize(32, 32));
         a12_l = new QPushButton(frame_figures);
         a12_l->setObjectName("a12_l");
-        a12_l->setGeometry(QRect(382, 106, 32, 32));
+        a12_l->setGeometry(QRect(382, 100, 32, 32));
         a12_l->setIconSize(QSize(32, 32));
         f3_l = new QPushButton(frame_figures);
         f3_l->setObjectName("f3_l");
-        f3_l->setGeometry(QRect(510, 401, 32, 32));
+        f3_l->setGeometry(QRect(511, 398, 32, 32));
         f3_l->setIconSize(QSize(32, 32));
         f8_l = new QPushButton(frame_figures);
         f8_l->setObjectName("f8_l");
-        f8_l->setGeometry(QRect(150, 288, 32, 32));
+        f8_l->setGeometry(QRect(150, 285, 32, 32));
         f8_l->setIconSize(QSize(32, 32));
         h4_l = new QPushButton(frame_figures);
         h4_l->setObjectName("h4_l");
-        h4_l->setGeometry(QRect(612, 357, 32, 32));
+        h4_l->setGeometry(QRect(613, 352, 32, 32));
         h4_l->setIconSize(QSize(32, 32));
         d2_l = new QPushButton(frame_figures);
         d2_l->setObjectName("d2_l");
-        d2_l->setGeometry(QRect(449, 470, 32, 32));
+        d2_l->setGeometry(QRect(449, 469, 32, 32));
         d2_l->setIconSize(QSize(32, 32));
         f11_l = new QPushButton(frame_figures);
         f11_l->setObjectName("f11_l");
-        f11_l->setGeometry(QRect(532, 238, 32, 32));
+        f11_l->setGeometry(QRect(531, 231, 32, 32));
         f11_l->setIconSize(QSize(32, 32));
         b4_l = new QPushButton(frame_figures);
         b4_l->setObjectName("b4_l");
-        b4_l->setGeometry(QRect(317, 469, 32, 32));
+        b4_l->setGeometry(QRect(318, 469, 32, 32));
         b4_l->setIconSize(QSize(32, 32));
         d8_l = new QPushButton(frame_figures);
         d8_l->setObjectName("d8_l");
-        d8_l->setGeometry(QRect(155, 355, 32, 32));
+        d8_l->setGeometry(QRect(155, 351, 32, 32));
         d8_l->setIconSize(QSize(32, 32));
         c4_l = new QPushButton(frame_figures);
         c4_l->setObjectName("c4_l");
-        c4_l->setGeometry(QRect(351, 427, 32, 32));
+        c4_l->setGeometry(QRect(352, 425, 32, 32));
         c4_l->setIconSize(QSize(32, 32));
         d12_l = new QPushButton(frame_figures);
         d12_l->setObjectName("d12_l");
-        d12_l->setGeometry(QRect(480, 166, 32, 32));
+        d12_l->setGeometry(QRect(480, 158, 32, 32));
         d12_l->setIconSize(QSize(32, 32));
         d1_l = new QPushButton(frame_figures);
         d1_l->setObjectName("d1_l");
-        d1_l->setGeometry(QRect(480, 513, 32, 32));
+        d1_l->setGeometry(QRect(482, 512, 32, 32));
         d1_l->setIconSize(QSize(32, 32));
         c1_l = new QPushButton(frame_figures);
         c1_l->setObjectName("c1_l");
@@ -1000,31 +1248,31 @@ public:
         c1_l->setIconSize(QSize(32, 32));
         c12_l = new QPushButton(frame_figures);
         c12_l->setObjectName("c12_l");
-        c12_l->setGeometry(QRect(446, 147, 32, 32));
+        c12_l->setGeometry(QRect(446, 139, 32, 32));
         c12_l->setIconSize(QSize(32, 32));
         h5_l = new QPushButton(frame_figures);
         h5_l->setObjectName("h5_l");
-        h5_l->setGeometry(QRect(253, 184, 32, 32));
+        h5_l->setGeometry(QRect(253, 173, 32, 32));
         h5_l->setIconSize(QSize(32, 32));
         b12_l = new QPushButton(frame_figures);
         b12_l->setObjectName("b12_l");
-        b12_l->setGeometry(QRect(416, 127, 32, 32));
+        b12_l->setGeometry(QRect(416, 120, 32, 32));
         b12_l->setIconSize(QSize(32, 32));
         c11_l = new QPushButton(frame_figures);
         c11_l->setObjectName("c11_l");
-        c11_l->setGeometry(QRect(416, 182, 32, 32));
+        c11_l->setGeometry(QRect(416, 174, 32, 32));
         c11_l->setIconSize(QSize(32, 32));
         a5_l = new QPushButton(frame_figures);
         a5_l->setObjectName("a5_l");
-        a5_l->setGeometry(QRect(252, 496, 32, 32));
+        a5_l->setGeometry(QRect(252, 495, 32, 32));
         a5_l->setIconSize(QSize(32, 32));
         h1_l = new QPushButton(frame_figures);
         h1_l->setObjectName("h1_l");
-        h1_l->setGeometry(QRect(624, 456, 32, 32));
+        h1_l->setGeometry(QRect(624, 453, 32, 32));
         h1_l->setIconSize(QSize(32, 32));
         g8_l = new QPushButton(frame_figures);
         g8_l->setObjectName("g8_l");
-        g8_l->setGeometry(QRect(146, 256, 32, 32));
+        g8_l->setGeometry(QRect(146, 251, 32, 32));
         g8_l->setIconSize(QSize(32, 32));
         b6_l = new QPushButton(frame_figures);
         b6_l->setObjectName("b6_l");
@@ -1032,94 +1280,94 @@ public:
         b6_l->setIconSize(QSize(32, 32));
         e6_l = new QPushButton(frame_figures);
         e6_l->setObjectName("e6_l");
-        e6_l->setGeometry(QRect(277, 317, 32, 32));
+        e6_l->setGeometry(QRect(277, 313, 32, 32));
         e6_l->setIconSize(QSize(32, 32));
         h9_l = new QPushButton(frame_figures);
         h9_l->setObjectName("h9_l");
-        h9_l->setGeometry(QRect(612, 323, 32, 32));
+        h9_l->setGeometry(QRect(613, 318, 32, 32));
         h9_l->setTabletTracking(false);
         h9_l->setAutoFillBackground(false);
         h9_l->setIconSize(QSize(32, 32));
         f10_l = new QPushButton(frame_figures);
         f10_l->setObjectName("f10_l");
-        f10_l->setGeometry(QRect(510, 278, 32, 32));
+        f10_l->setGeometry(QRect(511, 272, 32, 32));
         f10_l->setIconSize(QSize(32, 32));
         g7_l = new QPushButton(frame_figures);
         g7_l->setObjectName("g7_l");
-        g7_l->setGeometry(QRect(192, 247, 32, 32));
+        g7_l->setGeometry(QRect(192, 242, 32, 32));
         g7_l->setIconSize(QSize(32, 32));
         c9_l = new QPushButton(frame_figures);
         c9_l->setObjectName("c9_l");
-        c9_l->setGeometry(QRect(353, 253, 32, 32));
+        c9_l->setGeometry(QRect(352, 245, 32, 32));
         c9_l->setIconSize(QSize(32, 32));
         b2_l = new QPushButton(frame_figures);
         b2_l->setObjectName("b2_l");
-        b2_l->setGeometry(QRect(383, 524, 32, 32));
+        b2_l->setGeometry(QRect(384, 523, 32, 32));
         b2_l->setIconSize(QSize(32, 32));
         a6_l = new QPushButton(frame_figures);
         a6_l->setObjectName("a6_l");
-        a6_l->setGeometry(QRect(216, 484, 32, 32));
+        a6_l->setGeometry(QRect(217, 481, 32, 32));
         a6_l->setIconSize(QSize(32, 32));
         e1_l = new QPushButton(frame_figures);
         e1_l->setObjectName("e1_l");
-        e1_l->setGeometry(QRect(516, 498, 32, 32));
+        e1_l->setGeometry(QRect(516, 496, 32, 32));
         e1_l->setIconSize(QSize(32, 32));
         g9_l = new QPushButton(frame_figures);
         g9_l->setObjectName("g9_l");
-        g9_l->setGeometry(QRect(550, 320, 32, 32));
+        g9_l->setGeometry(QRect(550, 317, 32, 32));
         g9_l->setIconSize(QSize(32, 32));
         a9_l = new QPushButton(frame_figures);
         a9_l->setObjectName("a9_l");
-        a9_l->setGeometry(QRect(286, 165, 32, 32));
+        a9_l->setGeometry(QRect(286, 157, 32, 32));
         a9_l->setIconSize(QSize(32, 32));
         h6_l = new QPushButton(frame_figures);
         h6_l->setObjectName("h6_l");
-        h6_l->setGeometry(QRect(216, 197, 32, 32));
+        h6_l->setGeometry(QRect(216, 189, 32, 32));
         h6_l->setIconSize(QSize(32, 32));
         e7_l = new QPushButton(frame_figures);
         e7_l->setObjectName("e7_l");
-        e7_l->setGeometry(QRect(217, 320, 32, 32));
+        e7_l->setGeometry(QRect(217, 316, 32, 32));
         e7_l->setIconSize(QSize(32, 32));
         e9_l = new QPushButton(frame_figures);
         e9_l->setObjectName("e9_l");
-        e9_l->setGeometry(QRect(429, 317, 32, 32));
+        e9_l->setGeometry(QRect(430, 311, 32, 32));
         e9_l->setIconSize(QSize(32, 32));
         f7_l = new QPushButton(frame_figures);
         f7_l->setObjectName("f7_l");
-        f7_l->setGeometry(QRect(204, 284, 32, 32));
+        f7_l->setGeometry(QRect(204, 279, 32, 32));
         f7_l->setIconSize(QSize(32, 32));
         g1_l = new QPushButton(frame_figures);
         g1_l->setObjectName("g1_l");
-        g1_l->setGeometry(QRect(587, 469, 32, 32));
+        g1_l->setGeometry(QRect(588, 467, 32, 32));
         g1_l->setIconSize(QSize(32, 32));
         a4_l = new QPushButton(frame_figures);
         a4_l->setObjectName("a4_l");
-        a4_l->setGeometry(QRect(285, 513, 32, 32));
+        a4_l->setGeometry(QRect(286, 511, 32, 32));
         a4_l->setIconSize(QSize(32, 32));
         a2_l = new QPushButton(frame_figures);
         a2_l->setObjectName("a2_l");
-        a2_l->setGeometry(QRect(350, 552, 32, 32));
+        a2_l->setGeometry(QRect(351, 551, 32, 32));
         a2_l->setIconSize(QSize(32, 32));
         d4_l = new QPushButton(frame_figures);
         d4_l->setObjectName("d4_l");
-        d4_l->setGeometry(QRect(384, 384, 32, 32));
+        d4_l->setGeometry(QRect(384, 380, 32, 32));
         d4_l->setIconSize(QSize(32, 32));
         f4_l = new QPushButton(frame_figures);
         f4_l->setObjectName("f4_l");
-        f4_l->setGeometry(QRect(490, 360, 32, 32));
+        f4_l->setGeometry(QRect(491, 355, 32, 32));
         f4_l->setIconSize(QSize(32, 32));
         f1_l = new QPushButton(frame_figures);
         f1_l->setObjectName("f1_l");
-        f1_l->setGeometry(QRect(553, 484, 32, 32));
+        f1_l->setGeometry(QRect(553, 481, 32, 32));
         f1_l->setIconSize(QSize(32, 32));
         d11_l = new QPushButton(frame_figures);
         d11_l->setObjectName("d11_l");
-        d11_l->setGeometry(QRect(447, 210, 32, 32));
+        d11_l->setGeometry(QRect(448, 202, 32, 32));
         d11_l->setIconSize(QSize(32, 32));
         b1_l = new QPushButton(frame_figures);
         b1_l->setObjectName("b1_l");
         b1_l->setEnabled(true);
-        b1_l->setGeometry(QRect(414, 550, 32, 32));
+        b1_l->setGeometry(QRect(416, 550, 32, 32));
         b1_l->setIconSize(QSize(32, 32));
         b1_l->setCheckable(false);
         b1_l->setChecked(false);
@@ -1128,57 +1376,53 @@ public:
         b1_l->setAutoRepeatInterval(100);
         c5_l = new QPushButton(frame_figures);
         c5_l->setObjectName("c5_l");
-        c5_l->setGeometry(QRect(308, 404, 32, 32));
+        c5_l->setGeometry(QRect(309, 403, 32, 32));
         c5_l->setIconSize(QSize(32, 32));
         e5_l = new QPushButton(frame_figures);
         e5_l->setObjectName("e5_l");
-        e5_l->setGeometry(QRect(337, 316, 32, 32));
+        e5_l->setGeometry(QRect(338, 311, 32, 32));
         e5_l->setIconSize(QSize(32, 32));
         c3_l = new QPushButton(frame_figures);
         c3_l->setObjectName("c3_l");
-        c3_l->setGeometry(QRect(383, 461, 32, 32));
+        c3_l->setGeometry(QRect(383, 460, 32, 32));
         c3_l->setIconSize(QSize(32, 32));
         c3_l->setAutoDefault(false);
         c3_l->setFlat(false);
         g11_l = new QPushButton(frame_figures);
         g11_l->setObjectName("g11_l");
-        g11_l->setGeometry(QRect(576, 247, 32, 32));
+        g11_l->setGeometry(QRect(576, 241, 32, 32));
         g11_l->setIconSize(QSize(32, 32));
         h10_l = new QPushButton(frame_figures);
         h10_l->setObjectName("h10_l");
-        h10_l->setGeometry(QRect(616, 291, 32, 32));
+        h10_l->setGeometry(QRect(616, 284, 32, 32));
         h10_l->setIconSize(QSize(32, 32));
         e12_l = new QPushButton(frame_figures);
         e12_l->setObjectName("e12_l");
-        e12_l->setGeometry(QRect(514, 184, 32, 32));
+        e12_l->setGeometry(QRect(514, 176, 32, 32));
         e12_l->setIconSize(QSize(32, 32));
-        MainWindow->setCentralWidget(centralwidget);
+        stackedWidget->addWidget(gamePage);
+        l_backgnd_gamePage->raise();
         frame_background->raise();
         frame_figures->raise();
         frame_buttons->raise();
+        loadingPage = new QWidget();
+        loadingPage->setObjectName("loadingPage");
+        l_backgnd_loadingPage = new QLabel(loadingPage);
+        l_backgnd_loadingPage->setObjectName("l_backgnd_loadingPage");
+        l_backgnd_loadingPage->setGeometry(QRect(0, 0, 800, 597));
+        stackedWidget->addWidget(loadingPage);
+        MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 889, 21));
-        menu = new QMenu(menubar);
-        menu->setObjectName("menu");
-        menu_2 = new QMenu(menubar);
-        menu_2->setObjectName("menu_2");
+        menubar->setGeometry(QRect(0, 0, 800, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
 
-        menubar->addAction(menu->menuAction());
-        menubar->addAction(menu_2->menuAction());
-        menu->addAction(action);
-        menu->addAction(action_2);
-        menu->addAction(action_3);
-        menu_2->addAction(action_4);
-        menu_2->addAction(action_5);
-        menu_2->addAction(action_6);
-
         retranslateUi(MainWindow);
 
+        stackedWidget->setCurrentIndex(0);
         c3_pb->setDefault(false);
         c3_l->setDefault(false);
 
@@ -1189,18 +1433,26 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        action->setText(QCoreApplication::translate("MainWindow", "\320\235\320\276\320\262\320\260\321\217 \320\270\320\263\321\200\320\260", nullptr));
-        action_2->setText(QCoreApplication::translate("MainWindow", "\320\227\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214", nullptr));
-        action_3->setText(QCoreApplication::translate("MainWindow", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214", nullptr));
-        action_4->setText(QCoreApplication::translate("MainWindow", "\320\245\320\276\320\264 \320\275\320\260\320\267\320\260\320\264", nullptr));
-        action_5->setText(QCoreApplication::translate("MainWindow", "\320\245\320\276\320\264 \320\262\320\277\320\265\321\200\321\221\320\264", nullptr));
-        action_6->setText(QCoreApplication::translate("MainWindow", "\320\241\320\277\320\270\321\201\320\276\320\272 \321\205\320\276\320\264\320\276\320\262", nullptr));
+        gameName_2->setText(QCoreApplication::translate("MainWindow", "Chess1v3", nullptr));
+        pb_createGame_2->setText(QCoreApplication::translate("MainWindow", "\320\235\320\276\320\262\320\260\321\217 \320\270\320\263\321\200\320\260", nullptr));
+        pb_loadGame_2->setText(QCoreApplication::translate("MainWindow", "\320\227\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214 \320\270\320\263\321\200\321\203", nullptr));
+        l_backgnd_startPage->setText(QString());
+        label->setText(QCoreApplication::translate("MainWindow", "\320\230\320\263\321\200\320\276\320\272 1", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "\320\230\320\263\321\200\320\276\320\272 2", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "\320\230\320\263\321\200\320\276\320\272 3", nullptr));
+        okDialog->setText(QCoreApplication::translate("MainWindow", "\320\236\320\232", nullptr));
+        cancelDialog->setText(QCoreApplication::translate("MainWindow", "\320\236\321\202\320\274\320\265\320\275\320\260", nullptr));
+        l_backgnd_dialogPage->setText(QString());
+        l_backgnd_loadPage->setText(QString());
+        l_info_loadPage->setText(QCoreApplication::translate("MainWindow", "\320\222\321\213\320\261\320\265\321\200\320\270\321\202\320\265 \320\275\321\203\320\266\320\275\320\276\320\265 \321\201\320\276\321\205\321\200\320\260\320\275\320\265\320\275\320\270\320\265:", nullptr));
+        pb_OK_loadPage->setText(QCoreApplication::translate("MainWindow", "\320\276\320\272", nullptr));
+        pb_back_loadPage->setText(QCoreApplication::translate("MainWindow", "\320\275\320\260\320\267\320\260\320\264", nullptr));
+        l_backgnd_savePage->setText(QString());
+        l_backgnd_gamePage->setText(QString());
         l_PName3->setText(QCoreApplication::translate("MainWindow", "<\320\230\320\274\321\217>", nullptr));
-        label_15->setText(QCoreApplication::translate("MainWindow", "\320\230\320\263\321\200\320\276\320\272 1", nullptr));
         label_16->setText(QCoreApplication::translate("MainWindow", "\320\236\321\207\320\272\320\270", nullptr));
         l_PScore2->setText(QString());
         desk->setText(QString());
-        label_18->setText(QCoreApplication::translate("MainWindow", "\320\236\321\207\320\272\320\270", nullptr));
         label_19->setText(QCoreApplication::translate("MainWindow", "\320\236\321\207\320\272\320\270", nullptr));
         label_20->setText(QCoreApplication::translate("MainWindow", "\320\230\320\263\321\200\320\276\320\272 2", nullptr));
         l_PName1->setText(QCoreApplication::translate("MainWindow", "<\320\230\320\274\321\217>", nullptr));
@@ -1208,6 +1460,8 @@ public:
         l_PScore1->setText(QString());
         l_PScore3->setText(QString());
         label_21->setText(QCoreApplication::translate("MainWindow", "\320\230\320\263\321\200\320\276\320\272 3", nullptr));
+        label_15->setText(QCoreApplication::translate("MainWindow", "\320\230\320\263\321\200\320\276\320\272 1", nullptr));
+        label_18->setText(QCoreApplication::translate("MainWindow", "\320\236\321\207\320\272\320\270", nullptr));
         a5_pb->setText(QString());
         b11_pb->setText(QString());
         b3_pb->setText(QString());
@@ -1400,8 +1654,7 @@ public:
         g11_l->setText(QString());
         h10_l->setText(QString());
         e12_l->setText(QString());
-        menu->setTitle(QCoreApplication::translate("MainWindow", "\320\244\320\260\320\271\320\273", nullptr));
-        menu_2->setTitle(QCoreApplication::translate("MainWindow", "\320\224\320\265\320\271\321\201\321\202\320\262\320\270\320\265", nullptr));
+        l_backgnd_loadingPage->setText(QString());
     } // retranslateUi
 
 };

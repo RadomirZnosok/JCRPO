@@ -5,6 +5,7 @@
 #include <QString>
 #include "figure.h"
 #include "position.h"
+#include "header.h"
 
 class InfoPlayer
 {

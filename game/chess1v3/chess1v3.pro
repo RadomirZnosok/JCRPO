@@ -12,30 +12,24 @@ SOURCES += \
     binfile.cpp \
     deskplace.cpp \
     figure.cpp \
-    getnames.cpp \
     infoplayer.cpp \
     main.cpp \
     mainwindow.cpp \
     movecounter.cpp \
-    position.cpp \
-    startwindow.cpp
+    position.cpp
 
 HEADERS += \
     binfile.h \
     deskplace.h \
     figure.h \
-    getnames.h \
     header.h \
     infoplayer.h \
     mainwindow.h \
     movecounter.h \
-    position.h \
-    startwindow.h
+    position.h
 
 FORMS += \
-    getnames.ui \
-    mainwindow.ui \
-    startwindow.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
