@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include <QApplication>
 
+
+
 void initRun();
 
 int main(int argc, char *argv[])
@@ -16,12 +18,16 @@ int main(int argc, char *argv[])
         }
         return 0;
     }*/
+
+
+
     QApplication a(argc, argv);
     QString directoryPath = QDir::currentPath();//QString("C:\\Programms");//QDir::currentPath(); // Задайте путь к каталогу здесь
     MainWindow w1(directoryPath);
     w1.setWindowTitle("Chess1v3");
     w1.show();
     return a.exec();
+
 }
 
 

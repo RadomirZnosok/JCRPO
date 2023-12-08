@@ -10,7 +10,6 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
@@ -82,25 +81,23 @@ public:
     QFrame *frame_background;
     QWidget *gridLayoutWidget_4;
     QGridLayout *gridLayout_6;
-    QLabel *l_PName3;
-    QLabel *label_16;
-    QLabel *l_PScore2;
-    QLabel *desk;
-    QLabel *label_19;
-    QSpacerItem *horizontalSpacer_10;
     QLabel *label_20;
-    QSpacerItem *verticalSpacer_10;
     QLabel *l_PName1;
     QLabel *l_PName2;
-    QSpacerItem *verticalSpacer_11;
-    QLabel *l_PScore1;
-    QLabel *l_PScore3;
-    QLabel *label_21;
+    QSpacerItem *horizontalSpacer_2;
+    QLabel *label_18;
     QSpacerItem *horizontalSpacer_12;
     QLabel *label_15;
-    QLabel *label_18;
+    QLabel *label_19;
     QSpacerItem *horizontalSpacer;
-    QSpacerItem *horizontalSpacer_2;
+    QLabel *l_PScore3;
+    QLabel *l_PName3;
+    QLabel *l_PScore2;
+    QLabel *label_16;
+    QSpacerItem *horizontalSpacer_10;
+    QLabel *label_21;
+    QLabel *l_PScore1;
+    QLabel *desk;
     QFrame *frame_buttons;
     QPushButton *a5_pb;
     QPushButton *b11_pb;
@@ -198,6 +195,10 @@ public:
     QPushButton *g11_pb;
     QPushButton *b7_pb;
     QPushButton *a7_pb;
+    QPushButton *check_pb;
+    QPushButton *checkmate_pb;
+    QPushButton *moveback_pb;
+    QPushButton *nextturn_pb;
     QFrame *frame_figures;
     QPushButton *d5_l;
     QPushButton *b3_l;
@@ -295,6 +296,8 @@ public:
     QPushButton *g11_l;
     QPushButton *h10_l;
     QPushButton *e12_l;
+    QLabel *label_4;
+    QLabel *label_5;
     QWidget *loadingPage;
     QLabel *l_backgnd_loadingPage;
     QMenuBar *menubar;
@@ -304,7 +307,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(800, 680);
+        MainWindow->resize(883, 680);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         stackedWidget = new QStackedWidget(centralwidget);
@@ -380,7 +383,8 @@ public:
 
         l_backgnd_startPage = new QLabel(startPage);
         l_backgnd_startPage->setObjectName("l_backgnd_startPage");
-        l_backgnd_startPage->setGeometry(QRect(0, 0, 800, 597));
+        l_backgnd_startPage->setGeometry(QRect(0, 0, 800, 637));
+        l_backgnd_startPage->setPixmap(QPixmap(QString::fromUtf8("resources/backgnd.png")));
         stackedWidget->addWidget(startPage);
         l_backgnd_startPage->raise();
         verticalLayoutWidget->raise();
@@ -388,7 +392,7 @@ public:
         dialogPage->setObjectName("dialogPage");
         verticalLayoutWidget_2 = new QWidget(dialogPage);
         verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
-        verticalLayoutWidget_2->setGeometry(QRect(220, 120, 401, 332));
+        verticalLayoutWidget_2->setGeometry(QRect(220, 130, 401, 332));
         verticalLayout_3 = new QVBoxLayout(verticalLayoutWidget_2);
         verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_3->setContentsMargins(0, 0, 0, 0);
@@ -464,17 +468,17 @@ public:
         loadPage->setObjectName("loadPage");
         l_backgnd_loadPage = new QLabel(loadPage);
         l_backgnd_loadPage->setObjectName("l_backgnd_loadPage");
-        l_backgnd_loadPage->setGeometry(QRect(0, 0, 800, 597));
+        l_backgnd_loadPage->setGeometry(QRect(0, 0, 800, 637));
         l_backgnd_loadPage->setPixmap(QPixmap(QString::fromUtf8("resources/backgnd.png")));
         lw_loadPage = new QListWidget(loadPage);
         lw_loadPage->setObjectName("lw_loadPage");
-        lw_loadPage->setGeometry(QRect(200, 140, 391, 271));
+        lw_loadPage->setGeometry(QRect(200, 160, 391, 271));
         l_info_loadPage = new QLabel(loadPage);
         l_info_loadPage->setObjectName("l_info_loadPage");
-        l_info_loadPage->setGeometry(QRect(200, 120, 391, 16));
+        l_info_loadPage->setGeometry(QRect(200, 140, 391, 16));
         horizontalLayoutWidget = new QWidget(loadPage);
         horizontalLayoutWidget->setObjectName("horizontalLayoutWidget");
-        horizontalLayoutWidget->setGeometry(QRect(200, 410, 391, 31));
+        horizontalLayoutWidget->setGeometry(QRect(200, 430, 391, 31));
         horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
@@ -493,7 +497,8 @@ public:
         savePage->setObjectName("savePage");
         l_backgnd_savePage = new QLabel(savePage);
         l_backgnd_savePage->setObjectName("l_backgnd_savePage");
-        l_backgnd_savePage->setGeometry(QRect(0, 0, 800, 597));
+        l_backgnd_savePage->setGeometry(QRect(0, 0, 800, 637));
+        l_backgnd_savePage->setPixmap(QPixmap(QString::fromUtf8("resources/backgnd.png")));
         stackedWidget->addWidget(savePage);
         gamePage = new QWidget();
         gamePage->setObjectName("gamePage");
@@ -505,67 +510,25 @@ public:
         frame_background->setObjectName("frame_background");
         frame_background->setEnabled(true);
         frame_background->setGeometry(QRect(0, 0, 800, 637));
+        frame_background->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"	\n"
+"	background-color: rgba(0, 0, 0, 0.5);\n"
+"}"));
         frame_background->setFrameShape(QFrame::StyledPanel);
         frame_background->setFrameShadow(QFrame::Raised);
         gridLayoutWidget_4 = new QWidget(frame_background);
         gridLayoutWidget_4->setObjectName("gridLayoutWidget_4");
-        gridLayoutWidget_4->setGeometry(QRect(0, 0, 801, 641));
+        gridLayoutWidget_4->setGeometry(QRect(0, 0, 801, 62));
         gridLayout_6 = new QGridLayout(gridLayoutWidget_4);
         gridLayout_6->setSpacing(0);
         gridLayout_6->setObjectName("gridLayout_6");
         gridLayout_6->setContentsMargins(0, 0, 0, 0);
-        l_PName3 = new QLabel(gridLayoutWidget_4);
-        l_PName3->setObjectName("l_PName3");
-        l_PName3->setAlignment(Qt::AlignCenter);
-
-        gridLayout_6->addWidget(l_PName3, 0, 9, 1, 1);
-
-        label_16 = new QLabel(gridLayoutWidget_4);
-        label_16->setObjectName("label_16");
-        label_16->setAlignment(Qt::AlignCenter);
-
-        gridLayout_6->addWidget(label_16, 1, 8, 1, 1);
-
-        l_PScore2 = new QLabel(gridLayoutWidget_4);
-        l_PScore2->setObjectName("l_PScore2");
-        l_PScore2->setMinimumSize(QSize(50, 0));
-        l_PScore2->setAlignment(Qt::AlignCenter);
-
-        gridLayout_6->addWidget(l_PScore2, 1, 6, 1, 1);
-
-        desk = new QLabel(gridLayoutWidget_4);
-        desk->setObjectName("desk");
-        desk->setEnabled(true);
-        desk->setMinimumSize(QSize(329, 380));
-        desk->setSizeIncrement(QSize(1, 0));
-        desk->setBaseSize(QSize(329, 380));
-        desk->setPixmap(QPixmap(QString::fromUtf8("resources/desk.png")));
-        desk->setScaledContents(true);
-        desk->setAlignment(Qt::AlignCenter);
-        desk->setWordWrap(false);
-
-        gridLayout_6->addWidget(desk, 3, 3, 1, 5);
-
-        label_19 = new QLabel(gridLayoutWidget_4);
-        label_19->setObjectName("label_19");
-        label_19->setAlignment(Qt::AlignCenter);
-
-        gridLayout_6->addWidget(label_19, 1, 4, 1, 2);
-
-        horizontalSpacer_10 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_6->addItem(horizontalSpacer_10, 0, 7, 2, 1);
-
         label_20 = new QLabel(gridLayoutWidget_4);
         label_20->setObjectName("label_20");
         label_20->setMinimumSize(QSize(55, 0));
         label_20->setAlignment(Qt::AlignCenter);
 
         gridLayout_6->addWidget(label_20, 0, 4, 1, 2);
-
-        verticalSpacer_10 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
-
-        gridLayout_6->addItem(verticalSpacer_10, 2, 0, 1, 11);
 
         l_PName1 = new QLabel(gridLayoutWidget_4);
         l_PName1->setObjectName("l_PName1");
@@ -579,43 +542,9 @@ public:
 
         gridLayout_6->addWidget(l_PName2, 0, 6, 1, 1);
 
-        verticalSpacer_11 = new QSpacerItem(20, 10, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        gridLayout_6->addItem(verticalSpacer_11, 4, 0, 1, 11);
-
-        l_PScore1 = new QLabel(gridLayoutWidget_4);
-        l_PScore1->setObjectName("l_PScore1");
-        l_PScore1->setEnabled(true);
-        l_PScore1->setMinimumSize(QSize(50, 0));
-        l_PScore1->setAlignment(Qt::AlignCenter);
-
-        gridLayout_6->addWidget(l_PScore1, 1, 2, 1, 1);
-
-        l_PScore3 = new QLabel(gridLayoutWidget_4);
-        l_PScore3->setObjectName("l_PScore3");
-        l_PScore3->setMinimumSize(QSize(50, 0));
-        l_PScore3->setAlignment(Qt::AlignCenter);
-
-        gridLayout_6->addWidget(l_PScore3, 1, 9, 1, 1);
-
-        label_21 = new QLabel(gridLayoutWidget_4);
-        label_21->setObjectName("label_21");
-        label_21->setMinimumSize(QSize(55, 0));
-        label_21->setAlignment(Qt::AlignCenter);
-
-        gridLayout_6->addWidget(label_21, 0, 8, 1, 1);
-
-        horizontalSpacer_12 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_6->addItem(horizontalSpacer_12, 0, 3, 2, 1);
-
-        label_15 = new QLabel(gridLayoutWidget_4);
-        label_15->setObjectName("label_15");
-        label_15->setMinimumSize(QSize(55, 30));
-        label_15->setMaximumSize(QSize(16777215, 30));
-        label_15->setAlignment(Qt::AlignCenter);
-
-        gridLayout_6->addWidget(label_15, 0, 1, 1, 1);
+        gridLayout_6->addItem(horizontalSpacer_2, 0, 10, 3, 1);
 
         label_18 = new QLabel(gridLayoutWidget_4);
         label_18->setObjectName("label_18");
@@ -625,13 +554,72 @@ public:
 
         gridLayout_6->addWidget(label_18, 1, 1, 1, 1);
 
+        horizontalSpacer_12 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_6->addItem(horizontalSpacer_12, 0, 3, 3, 1);
+
+        label_15 = new QLabel(gridLayoutWidget_4);
+        label_15->setObjectName("label_15");
+        label_15->setMinimumSize(QSize(55, 30));
+        label_15->setMaximumSize(QSize(16777215, 30));
+        label_15->setAlignment(Qt::AlignCenter);
+
+        gridLayout_6->addWidget(label_15, 0, 1, 1, 1);
+
+        label_19 = new QLabel(gridLayoutWidget_4);
+        label_19->setObjectName("label_19");
+        label_19->setAlignment(Qt::AlignCenter);
+
+        gridLayout_6->addWidget(label_19, 1, 4, 2, 2);
+
         horizontalSpacer = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        gridLayout_6->addItem(horizontalSpacer, 0, 0, 2, 1);
+        gridLayout_6->addItem(horizontalSpacer, 0, 0, 3, 1);
 
-        horizontalSpacer_2 = new QSpacerItem(10, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+        l_PScore3 = new QLabel(gridLayoutWidget_4);
+        l_PScore3->setObjectName("l_PScore3");
+        l_PScore3->setMinimumSize(QSize(50, 0));
+        l_PScore3->setAlignment(Qt::AlignCenter);
 
-        gridLayout_6->addItem(horizontalSpacer_2, 0, 10, 2, 1);
+        gridLayout_6->addWidget(l_PScore3, 1, 9, 2, 1);
+
+        l_PName3 = new QLabel(gridLayoutWidget_4);
+        l_PName3->setObjectName("l_PName3");
+        l_PName3->setAlignment(Qt::AlignCenter);
+
+        gridLayout_6->addWidget(l_PName3, 0, 9, 1, 1);
+
+        l_PScore2 = new QLabel(gridLayoutWidget_4);
+        l_PScore2->setObjectName("l_PScore2");
+        l_PScore2->setMinimumSize(QSize(50, 0));
+        l_PScore2->setAlignment(Qt::AlignCenter);
+
+        gridLayout_6->addWidget(l_PScore2, 1, 6, 2, 1);
+
+        label_16 = new QLabel(gridLayoutWidget_4);
+        label_16->setObjectName("label_16");
+        label_16->setAlignment(Qt::AlignCenter);
+
+        gridLayout_6->addWidget(label_16, 1, 8, 2, 1);
+
+        horizontalSpacer_10 = new QSpacerItem(20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_6->addItem(horizontalSpacer_10, 0, 7, 3, 1);
+
+        label_21 = new QLabel(gridLayoutWidget_4);
+        label_21->setObjectName("label_21");
+        label_21->setMinimumSize(QSize(55, 0));
+        label_21->setAlignment(Qt::AlignCenter);
+
+        gridLayout_6->addWidget(label_21, 0, 8, 1, 1);
+
+        l_PScore1 = new QLabel(gridLayoutWidget_4);
+        l_PScore1->setObjectName("l_PScore1");
+        l_PScore1->setEnabled(true);
+        l_PScore1->setMinimumSize(QSize(50, 0));
+        l_PScore1->setAlignment(Qt::AlignCenter);
+
+        gridLayout_6->addWidget(l_PScore1, 1, 2, 2, 1);
 
         gridLayout_6->setRowStretch(0, 1);
         gridLayout_6->setColumnStretch(0, 1);
@@ -647,7 +635,21 @@ public:
         l_PScore1->raise();
         l_PScore3->raise();
         label_21->raise();
-        desk->raise();
+        desk = new QLabel(frame_background);
+        desk->setObjectName("desk");
+        desk->setEnabled(true);
+        desk->setGeometry(QRect(115, 71, 569, 554));
+        desk->setMinimumSize(QSize(329, 380));
+        desk->setSizeIncrement(QSize(1, 0));
+        desk->setBaseSize(QSize(329, 380));
+        desk->setStyleSheet(QString::fromUtf8("QLabel{\n"
+"	\n"
+"	background-color: rgba(0, 0, 0, 0.0);\n"
+"}"));
+        desk->setPixmap(QPixmap(QString::fromUtf8("resources/desk.png")));
+        desk->setScaledContents(true);
+        desk->setAlignment(Qt::AlignCenter);
+        desk->setWordWrap(false);
         frame_buttons = new QFrame(gamePage);
         frame_buttons->setObjectName("frame_buttons");
         frame_buttons->setEnabled(true);
@@ -662,6 +664,9 @@ public:
 "\n"
 "QFrame{\n"
 "	background-color: rgba(255, 255, 255, 0.0);\n"
+"}\n"
+"QLabel{\n"
+"	background-color: rgba(0, 0, 0, 0.0);\n"
 "}"));
         frame_buttons->setFrameShape(QFrame::StyledPanel);
         frame_buttons->setFrameShadow(QFrame::Raised);
@@ -790,6 +795,7 @@ public:
         d4_pb->setGeometry(QRect(392, 388, 16, 16));
         b10_pb = new QPushButton(frame_buttons);
         b10_pb->setObjectName("b10_pb");
+        b10_pb->setEnabled(true);
         b10_pb->setGeometry(QRect(359, 183, 16, 16));
         h7_pb = new QPushButton(frame_buttons);
         h7_pb->setObjectName("h7_pb");
@@ -986,12 +992,24 @@ public:
         a7_pb = new QPushButton(frame_buttons);
         a7_pb->setObjectName("a7_pb");
         a7_pb->setGeometry(QRect(188, 474, 16, 16));
+        check_pb = new QPushButton(frame_buttons);
+        check_pb->setObjectName("check_pb");
+        check_pb->setGeometry(QRect(20, 90, 91, 24));
+        checkmate_pb = new QPushButton(frame_buttons);
+        checkmate_pb->setObjectName("checkmate_pb");
+        checkmate_pb->setGeometry(QRect(20, 130, 91, 24));
+        moveback_pb = new QPushButton(frame_buttons);
+        moveback_pb->setObjectName("moveback_pb");
+        moveback_pb->setGeometry(QRect(20, 170, 91, 24));
+        nextturn_pb = new QPushButton(frame_buttons);
+        nextturn_pb->setObjectName("nextturn_pb");
+        nextturn_pb->setGeometry(QRect(20, 209, 91, 24));
         frame_figures = new QFrame(gamePage);
         frame_figures->setObjectName("frame_figures");
         frame_figures->setEnabled(true);
         frame_figures->setGeometry(QRect(0, 0, 800, 637));
         frame_figures->setStyleSheet(QString::fromUtf8("QPushButton{\n"
-"	background-color: rgba(255, 255, 255, 1.0);\n"
+"	background-color: rgba(255, 255, 255, 0.5);\n"
 "    border-radius: 8px;\n"
 "    width: 16px;\n"
 "    height: 16px;\n"
@@ -1058,9 +1076,6 @@ public:
         a1_l = new QPushButton(frame_figures);
         a1_l->setObjectName("a1_l");
         a1_l->setGeometry(QRect(383, 571, 32, 32));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8("resources/g1.png"), QSize(), QIcon::Normal, QIcon::Off);
-        a1_l->setIcon(icon);
         a1_l->setIconSize(QSize(32, 32));
         c2_l = new QPushButton(frame_figures);
         c2_l->setObjectName("c2_l");
@@ -1400,6 +1415,27 @@ public:
         e12_l->setObjectName("e12_l");
         e12_l->setGeometry(QRect(514, 176, 32, 32));
         e12_l->setIconSize(QSize(32, 32));
+        label_4 = new QLabel(frame_figures);
+        label_4->setObjectName("label_4");
+        label_4->setGeometry(QRect(130, 93, 71, 16));
+        QPalette palette;
+        QBrush brush(QColor(0, 0, 0, 127));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Button, brush);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush);
+        label_4->setPalette(palette);
+        label_4->setStyleSheet(QString::fromUtf8("background-color: rgba(0, 0, 0, 0.5);"));
+        label_5 = new QLabel(frame_figures);
+        label_5->setObjectName("label_5");
+        label_5->setGeometry(QRect(200, 93, 31, 16));
+        label_5->setStyleSheet(QString::fromUtf8("background-color: rgba(0, 0, 0, 0.5);"));
         stackedWidget->addWidget(gamePage);
         l_backgnd_gamePage->raise();
         frame_background->raise();
@@ -1409,12 +1445,13 @@ public:
         loadingPage->setObjectName("loadingPage");
         l_backgnd_loadingPage = new QLabel(loadingPage);
         l_backgnd_loadingPage->setObjectName("l_backgnd_loadingPage");
-        l_backgnd_loadingPage->setGeometry(QRect(0, 0, 800, 597));
+        l_backgnd_loadingPage->setGeometry(QRect(0, 0, 800, 637));
+        l_backgnd_loadingPage->setPixmap(QPixmap(QString::fromUtf8("resources/backgnd.png")));
         stackedWidget->addWidget(loadingPage);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 883, 21));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -1422,7 +1459,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(0);
+        stackedWidget->setCurrentIndex(4);
         c3_pb->setDefault(false);
         c3_l->setDefault(false);
 
@@ -1449,19 +1486,19 @@ public:
         pb_back_loadPage->setText(QCoreApplication::translate("MainWindow", "\320\275\320\260\320\267\320\260\320\264", nullptr));
         l_backgnd_savePage->setText(QString());
         l_backgnd_gamePage->setText(QString());
-        l_PName3->setText(QCoreApplication::translate("MainWindow", "<\320\230\320\274\321\217>", nullptr));
-        label_16->setText(QCoreApplication::translate("MainWindow", "\320\236\321\207\320\272\320\270", nullptr));
-        l_PScore2->setText(QString());
-        desk->setText(QString());
-        label_19->setText(QCoreApplication::translate("MainWindow", "\320\236\321\207\320\272\320\270", nullptr));
         label_20->setText(QCoreApplication::translate("MainWindow", "\320\230\320\263\321\200\320\276\320\272 2", nullptr));
         l_PName1->setText(QCoreApplication::translate("MainWindow", "<\320\230\320\274\321\217>", nullptr));
         l_PName2->setText(QCoreApplication::translate("MainWindow", "<\320\230\320\274\321\217>", nullptr));
-        l_PScore1->setText(QString());
-        l_PScore3->setText(QString());
-        label_21->setText(QCoreApplication::translate("MainWindow", "\320\230\320\263\321\200\320\276\320\272 3", nullptr));
-        label_15->setText(QCoreApplication::translate("MainWindow", "\320\230\320\263\321\200\320\276\320\272 1", nullptr));
         label_18->setText(QCoreApplication::translate("MainWindow", "\320\236\321\207\320\272\320\270", nullptr));
+        label_15->setText(QCoreApplication::translate("MainWindow", "\320\230\320\263\321\200\320\276\320\272 1", nullptr));
+        label_19->setText(QCoreApplication::translate("MainWindow", "\320\236\321\207\320\272\320\270", nullptr));
+        l_PScore3->setText(QString());
+        l_PName3->setText(QCoreApplication::translate("MainWindow", "<\320\230\320\274\321\217>", nullptr));
+        l_PScore2->setText(QString());
+        label_16->setText(QCoreApplication::translate("MainWindow", "\320\236\321\207\320\272\320\270", nullptr));
+        label_21->setText(QCoreApplication::translate("MainWindow", "\320\230\320\263\321\200\320\276\320\272 3", nullptr));
+        l_PScore1->setText(QString());
+        desk->setText(QString());
         a5_pb->setText(QString());
         b11_pb->setText(QString());
         b3_pb->setText(QString());
@@ -1558,6 +1595,10 @@ public:
         g11_pb->setText(QString());
         b7_pb->setText(QString());
         a7_pb->setText(QString());
+        check_pb->setText(QCoreApplication::translate("MainWindow", "\321\210\320\260\321\205", nullptr));
+        checkmate_pb->setText(QCoreApplication::translate("MainWindow", "\321\210\320\260\321\205-\320\270-\320\274\320\260\321\202", nullptr));
+        moveback_pb->setText(QCoreApplication::translate("MainWindow", "\320\275\320\265\320\262\320\265\321\200\320\275\321\213\320\271 \321\205\320\276\320\264", nullptr));
+        nextturn_pb->setText(QCoreApplication::translate("MainWindow", "\320\277\320\265\321\200\320\265\320\264\320\260\321\202\321\214 \321\205\320\276\320\264", nullptr));
         d5_l->setText(QString());
         b3_l->setText(QString());
         d7_l->setText(QString());
@@ -1654,6 +1695,8 @@ public:
         g11_l->setText(QString());
         h10_l->setText(QString());
         e12_l->setText(QString());
+        label_4->setText(QCoreApplication::translate("MainWindow", "\320\245\320\276\320\264 \320\270\320\263\321\200\320\276\320\272\320\260:", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "<...>", nullptr));
         l_backgnd_loadingPage->setText(QString());
     } // retranslateUi
 

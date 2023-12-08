@@ -68,7 +68,26 @@ OBJECTS       = release/binfile.o \
 		release/position.o \
 		release/moc_mainwindow.o
 
-DIST          =  ..\chess1v3\binfile.h \
+DIST          = resources/b0.png \
+		resources/b1.png \
+		resources/b2.png \
+		resources/b3.png \
+		resources/b4.png \
+		resources/b5.png \
+		resources/backgnd.png \
+		resources/desk.png \
+		resources/g0.png \
+		resources/g1.png \
+		resources/g2.png \
+		resources/g3.png \
+		resources/g4.png \
+		resources/g5.png \
+		resources/o0.png \
+		resources/o1.png \
+		resources/o2.png \
+		resources/o3.png \
+		resources/o4.png \
+		resources/o5.png ..\chess1v3\binfile.h \
 		..\chess1v3\deskplace.h \
 		..\chess1v3\figure.h \
 		..\chess1v3\header.h \
@@ -300,6 +319,7 @@ release/moc_mainwindow.cpp: ../chess1v3/mainwindow.h \
 		../chess1v3/figure.h \
 		../chess1v3/position.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QChar \
+		../chess1v3/header.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QTextStream \
 		../chess1v3/movecounter.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QFile \
@@ -452,6 +472,7 @@ release/binfile.o: ../chess1v3/binfile.cpp ../chess1v3/binfile.h \
 		../chess1v3/figure.h \
 		../chess1v3/position.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QChar \
+		../chess1v3/header.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QTextStream \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qtextstream.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qiodevicebase.h \
@@ -645,6 +666,7 @@ release/deskplace.o: ../chess1v3/deskplace.cpp ../chess1v3/deskplace.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QString \
 		../chess1v3/position.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QChar \
+		../chess1v3/header.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QTextStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\deskplace.o ..\chess1v3\deskplace.cpp
 
@@ -725,6 +747,7 @@ release/figure.o: ../chess1v3/figure.cpp ../chess1v3/figure.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qstringmatcher.h \
 		../chess1v3/position.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QChar \
+		../chess1v3/header.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QTextStream \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qtextstream.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qiodevicebase.h \
@@ -810,6 +833,7 @@ release/infoplayer.o: ../chess1v3/infoplayer.cpp ../chess1v3/infoplayer.h \
 		../chess1v3/figure.h \
 		../chess1v3/position.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QChar \
+		../chess1v3/header.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QTextStream \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qtextstream.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qiodevicebase.h \
@@ -984,6 +1008,7 @@ release/main.o: ../chess1v3/main.cpp ../chess1v3/mainwindow.h \
 		../chess1v3/figure.h \
 		../chess1v3/position.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QChar \
+		../chess1v3/header.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QTextStream \
 		../chess1v3/movecounter.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QFile \
@@ -1220,6 +1245,7 @@ release/mainwindow.o: ../chess1v3/mainwindow.cpp ../chess1v3/mainwindow.h \
 		../chess1v3/figure.h \
 		../chess1v3/position.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QChar \
+		../chess1v3/header.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QTextStream \
 		../chess1v3/movecounter.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QFile \
@@ -1268,7 +1294,6 @@ release/mainwindow.o: ../chess1v3/mainwindow.cpp ../chess1v3/mainwindow.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcalendar.h \
 		ui_mainwindow.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/QVariant \
-		C:/Qt/6.5.2/mingw_64/include/QtGui/QIcon \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/QApplication \
 		C:/Qt/6.5.2/mingw_64/include/QtWidgets/qapplication.h \
 		C:/Qt/6.5.2/mingw_64/include/QtCore/qcoreapplication.h \

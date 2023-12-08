@@ -15,7 +15,7 @@ private:
     short score;
 
 public:
-    InfoPlayer(QString player, QString startPos);
+    InfoPlayer(QString player, QString startPos, int numplayer);
     InfoPlayer(InfoPlayer* player = nullptr);
     InfoPlayer(const InfoPlayer& obj);
     ~InfoPlayer();

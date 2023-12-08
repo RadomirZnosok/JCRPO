@@ -4,6 +4,7 @@
 #include <QString>
 #include <QList>
 #include "position.h"
+#include "header.h"
 
 #include <QTextStream>
 
@@ -35,6 +36,7 @@ public:
 
     bool getExist() const;
     void setExist(bool newExist);
+    static Figure makeFigure(QString name, QString Pos, int player);
 };
 
 

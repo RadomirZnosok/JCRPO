@@ -20,6 +20,10 @@
 #include <QStringList>
 
 
+
+
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -31,12 +35,10 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(const QString& directoryPath, QWidget *parent = nullptr);
     ~MainWindow();
-    void nextPlayerTurn();          // передача очередности хода
-    void enablePlayerPlaces();      //
-    void enableStepPlaces(int col, int row);
+
 
 private slots:
-    void clickedButton(int col, int row);// gameWin
+    void clickedButton(QString dest);// gameWin
     void actNewGame();      // gameWidget
     void actSaveGame();     // gameWidget
     void actLoadGame();     // gameWidget
@@ -59,8 +61,12 @@ private slots:
 
     void on_pb_back_loadPage_clicked();
 
+    void on_nextturn_pb_clicked();
+
+    void on_check_pb_clicked();
+
 private:
-    int stage;                      // 1 - create game()from start,
+    int stage;                      // 1 - create game()from startPage, 2 создание новой игры() from gamePage
         //
     Ui::MainWindow *ui;
 
@@ -70,17 +76,28 @@ private:
     MoveCounter moveHistory;        // история ходов
     int sequence;                   // очередность хода
     bool isCurPlace;                // true - нажата фигура, false - не нажата
-    int curPlace[2];                // место активированной кнопки
-    DeskPlace* buttons[8][12];      // ссылки на кнопки
-    QPushButton* pictures[8][12];   // ссылки на объекты с изображениями фигур
+    QString curPlace;                // место активированной кнопки
+    DeskPlace* A1;
+    QMap<QString, DeskPlace*> mapOffsets;
     //-----------------------------------------------------------------------------------------
     // loadWidget
     QString m_directoryPath;
     //-----------------------------------------------------------------------------------------
 
     void loadGame();
-    void createNewGame();                               // возникла ошибка!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    void createNewGame();                        // возникла ошибка, выход за область памяти!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     void populateFileList();
-    void setIconFigure(int i, int j, const QString& figName);
+    void setIconFigure(DeskPlace* ob, const QString& figName);
+    bool makeStep(DeskPlace* ob);
+    bool makeHit(DeskPlace* ob);
+    bool isEndPlace(Position cmped);
+    void nextPlayerTurn();                      // передача очередности хода
+    void enablePlayerPlaces();      //
+//    void enableStepPlaces(int col, int row);    // ошибка адресации кнопок для игроков 2,3
+    QString changeFig();
+    void enableAllButtons();
+//    void enableForFigButtons(DeskPlace* ob);
+    void blockAllButtons();
+    void setPlayerFig(int i);
 };
 #endif // MAINWINDOW_H

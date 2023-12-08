@@ -11,17 +11,29 @@ class DeskPlace: public QPushButton
 {
 private:
     Figure* figure;
+    QPushButton* picture;
     int player;
-    MainWindow* fd;
+    QString name;
+
 
 public:
-    DeskPlace(QWidget* parent, QPushButton* button, MainWindow* window);
+    DeskPlace(QWidget* parent, QPushButton* button, QPushButton* pict, QString nname);
+    void setPicture(QString path);
     bool isEmpty();
-    void setVisible(bool flag = true);
+    void set_Visible(bool flag = true);
     void setFigure(Figure* obj, int player = -1);
     Figure* getFigure();
     int getPlayer() const;
     void setPlayer(int newPlayer);
+
+    bool checkPlace(struct steps offs);
+
+
+    DeskPlace* up;
+    DeskPlace* down;
+    DeskPlace* right;
+    DeskPlace* left;
+    QString getName() const;
 };
 
 #endif // DESKPLACE_H

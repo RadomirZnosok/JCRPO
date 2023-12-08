@@ -10,14 +10,37 @@ void DeskPlace::setPlayer(int newPlayer)
     player = newPlayer;
 }
 
-DeskPlace::DeskPlace(QWidget* parent, QPushButton* mybutton, MainWindow* win)
+
+QString DeskPlace::getName() const
 {
-    this->fd = win;
+    return name;
+}
+
+DeskPlace::DeskPlace(QWidget* parent, QPushButton* mybutton, QPushButton* pict, QString nname)
+{
+    this->setParent(parent);
+    picture = pict;
+    name = nname;
     setObjectName(mybutton->objectName());
     setGeometry(mybutton->geometry());
     setText(mybutton->text());
     figure = nullptr;
     player = -1;
+    up = nullptr;
+    down = nullptr;
+    right = nullptr;
+    left = nullptr;
+
+}
+
+void DeskPlace::setPicture(QString path)
+{
+    if (path.isEmpty()){
+        this->picture->setIcon(QIcon());
+    }
+    else {
+        this->picture->setIcon(QIcon(path));
+    }
 }
 
 bool DeskPlace::isEmpty(){
@@ -28,8 +51,15 @@ bool DeskPlace::isEmpty(){
 }
 
 
-void DeskPlace::setVisible(bool flag){
+void DeskPlace::set_Visible(bool flag){
     setEnabled(flag);
+    if (flag && !this->figure) {
+        this->show();
+    }
+    else if (!flag){
+        this->hide();
+    }
+
 }
 
 

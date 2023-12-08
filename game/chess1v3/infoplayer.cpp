@@ -2,295 +2,114 @@
 
 
 
-InfoPlayer::InfoPlayer(QString newName, QString startPos)
+InfoPlayer::InfoPlayer(QString newName, QString startPos, int numplayer)
     :playerName(newName)
 {
-    bool a1 = startPos.compare("A01") == 0 ? true : false;
-    QChar idY = startPos.at(2), idX = startPos.at(0);
-    QList<struct steps> list;
     Figure obj = Figure(true);
     this->playerName = newName;
 
-    obj.setName(fignames[0]);
-    if (a1){
-        list.append(Position::makeSteps(2,0,0,0));
-        list.append(Position::makeSteps(1,0,0,0));
-    }
-    else {
-        list.append(Position::makeSteps(0,2,0,0));
-        list.append(Position::makeSteps(0,1,0,0));
-    }
-    obj.setSteps(list);
-    list.clear();
-    if (a1){
-        list.append(Position::makeSteps(1,0,1,0));
-        list.append(Position::makeSteps(1,0,0,1));
-    }
-    else {
-        list.append(Position::makeSteps(0,1,1,0));
-        list.append(Position::makeSteps(0,1,0,1));
-    }
-    obj.setAttack(list);
-    list.clear();
-    {
-        QChar X = idX, Y = a1 ? QChar(idY.unicode()+1) : QChar(idY.unicode()-1);
-        for (int i = 0; i < 8; i++){
-            obj.setPosStr(QString("") + X + startPos.at(1) + Y);
-            this->listFigure.append(obj);
-            a1 ? X = QChar(X.unicode()+1) : X = QChar(X.unicode()-1);
-        }
-    }
-
-    obj.setName(fignames[1]);
-    list.append(Position::makeSteps(1,0,0,0));
-    list.append(Position::makeSteps(2,0,0,0));
-    list.append(Position::makeSteps(3,0,0,0));
-    list.append(Position::makeSteps(4,0,0,0));
-    list.append(Position::makeSteps(5,0,0,0));
-    list.append(Position::makeSteps(6,0,0,0));
-    list.append(Position::makeSteps(7,0,0,0));
-    list.append(Position::makeSteps(8,0,0,0));
-    list.append(Position::makeSteps(9,0,0,0));
-    list.append(Position::makeSteps(10,0,0,0));
-    list.append(Position::makeSteps(11,0,0,0));
-    list.append(Position::makeSteps(0,1,0,0));
-    list.append(Position::makeSteps(0,2,0,0));
-    list.append(Position::makeSteps(0,3,0,0));
-    list.append(Position::makeSteps(0,4,0,0));
-    list.append(Position::makeSteps(0,5,0,0));
-    list.append(Position::makeSteps(0,6,0,0));
-    list.append(Position::makeSteps(0,7,0,0));
-    list.append(Position::makeSteps(0,8,0,0));
-    list.append(Position::makeSteps(0,9,0,0));
-    list.append(Position::makeSteps(0,10,0,0));
-    list.append(Position::makeSteps(0,11,0,0));
-    list.append(Position::makeSteps(0,0,1,0));
-    list.append(Position::makeSteps(0,0,2,0));
-    list.append(Position::makeSteps(0,0,3,0));
-    list.append(Position::makeSteps(0,0,4,0));
-    list.append(Position::makeSteps(0,0,5,0));
-    list.append(Position::makeSteps(0,0,6,0));
-    list.append(Position::makeSteps(0,0,7,0));
-    list.append(Position::makeSteps(0,0,8,0));
-    list.append(Position::makeSteps(0,0,9,0));
-    list.append(Position::makeSteps(0,0,10,0));
-    list.append(Position::makeSteps(0,0,11,0));
-    list.append(Position::makeSteps(0,0,0,1));
-    list.append(Position::makeSteps(0,0,0,2));
-    list.append(Position::makeSteps(0,0,0,3));
-    list.append(Position::makeSteps(0,0,0,4));
-    list.append(Position::makeSteps(0,0,0,5));
-    list.append(Position::makeSteps(0,0,0,6));
-    list.append(Position::makeSteps(0,0,0,7));
-    list.append(Position::makeSteps(0,0,0,8));
-    list.append(Position::makeSteps(0,0,0,9));
-    list.append(Position::makeSteps(0,0,0,10));
-    list.append(Position::makeSteps(0,0,0,11));
-    obj.setSteps(list);
-    obj.setAttack(list);
-    list.clear();
-    {
-        QChar X1 = 'A', X2 = 'H';
-        obj.setPosStr(QString("") + X1 + startPos.at(1) + idY);
+    if (numplayer == 0){
+        obj = Figure::makeFigure(fignames[0], "A2", numplayer);
         this->listFigure.append(obj);
-        obj.setPosStr(QString("") + X2 + startPos.at(1) + idY);
+        obj = Figure::makeFigure(fignames[0], "B2", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "C2", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "D2", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "E2", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "F2", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "G2", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "H2", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[1], "A1", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[1], "H1", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[2], "B1", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[2], "G1", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[3], "C1", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[3], "F1", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[4], "D1", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[5], "E1", numplayer);
         this->listFigure.append(obj);
     }
-
-    obj.setName(fignames[2]);
-    list.append(Position::makeSteps(2,0,1,0));
-    list.append(Position::makeSteps(2,0,0,1));
-    list.append(Position::makeSteps(0,2,1,0));
-    list.append(Position::makeSteps(0,2,0,1));
-    list.append(Position::makeSteps(1,0,2,0));
-    list.append(Position::makeSteps(0,1,2,0));
-    list.append(Position::makeSteps(1,0,0,2));
-    list.append(Position::makeSteps(0,1,0,2));
-    obj.setSteps(list);
-    obj.setAttack(list);
-    list.clear();
-    {
-        QChar X1 = 'B', X2 = 'G';
-        obj.setPosStr(QString("") + X1 + startPos.at(1) + idY);
+    else if (numplayer == 1){
+        obj = Figure::makeFigure(fignames[0], "A7", numplayer);
         this->listFigure.append(obj);
-        obj.setPosStr(QString("") + X2 + startPos.at(1) + idY);
+        obj = Figure::makeFigure(fignames[0], "B7", numplayer);
         this->listFigure.append(obj);
-    }
-
-    obj.setName(fignames[3]);
-    list.append(Position::makeSteps(1,0,1,0));
-    list.append(Position::makeSteps(2,0,2,0));
-    list.append(Position::makeSteps(3,0,3,0));
-    list.append(Position::makeSteps(4,0,4,0));
-    list.append(Position::makeSteps(5,0,5,0));
-    list.append(Position::makeSteps(6,0,6,0));
-    list.append(Position::makeSteps(7,0,7,0));
-    list.append(Position::makeSteps(8,0,8,0));
-    list.append(Position::makeSteps(9,0,9,0));
-    list.append(Position::makeSteps(10,0,10,0));
-    list.append(Position::makeSteps(11,0,11,0));
-    list.append(Position::makeSteps(0,1,1,0));
-    list.append(Position::makeSteps(0,2,2,0));
-    list.append(Position::makeSteps(0,3,3,0));
-    list.append(Position::makeSteps(0,4,4,0));
-    list.append(Position::makeSteps(0,5,5,0));
-    list.append(Position::makeSteps(0,6,6,0));
-    list.append(Position::makeSteps(0,7,7,0));
-    list.append(Position::makeSteps(0,8,8,0));
-    list.append(Position::makeSteps(0,9,9,0));
-    list.append(Position::makeSteps(0,10,10,0));
-    list.append(Position::makeSteps(0,11,11,0));
-    list.append(Position::makeSteps(1,0,0,1));
-    list.append(Position::makeSteps(2,0,0,2));
-    list.append(Position::makeSteps(3,0,0,3));
-    list.append(Position::makeSteps(4,0,0,4));
-    list.append(Position::makeSteps(5,0,0,5));
-    list.append(Position::makeSteps(6,0,0,6));
-    list.append(Position::makeSteps(7,0,0,7));
-    list.append(Position::makeSteps(8,0,0,8));
-    list.append(Position::makeSteps(9,0,0,9));
-    list.append(Position::makeSteps(10,0,0,10));
-    list.append(Position::makeSteps(11,0,0,11));
-    list.append(Position::makeSteps(1,0,0,1));
-    list.append(Position::makeSteps(2,0,0,2));
-    list.append(Position::makeSteps(3,0,0,3));
-    list.append(Position::makeSteps(4,0,0,4));
-    list.append(Position::makeSteps(5,0,0,5));
-    list.append(Position::makeSteps(6,0,0,6));
-    list.append(Position::makeSteps(7,0,0,7));
-    list.append(Position::makeSteps(8,0,0,8));
-    list.append(Position::makeSteps(9,0,0,9));
-    list.append(Position::makeSteps(10,0,0,10));
-    list.append(Position::makeSteps(11,0,0,11));
-    obj.setSteps(list);
-    obj.setAttack(list);
-    list.clear();
-    {
-        QChar X1 = 'C', X2 = 'F';
-        obj.setPosStr(QString("") + X1 + startPos.at(1) + idY);
+        obj = Figure::makeFigure(fignames[0], "C7", numplayer);
         this->listFigure.append(obj);
-        obj.setPosStr(QString("") + X2 + startPos.at(1) + idY);
+        obj = Figure::makeFigure(fignames[0], "D7", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "E7", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "F7", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "G7", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "H7", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[1], "A8", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[1], "H8", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[2], "B8", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[2], "G8", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[3], "C8", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[3], "F8", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[4], "E8", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[5], "D8", numplayer);
         this->listFigure.append(obj);
     }
-
-    obj.setName(fignames[4]);
-    list.append(Position::makeSteps(1,0,0,0));
-    list.append(Position::makeSteps(2,0,0,0));
-    list.append(Position::makeSteps(3,0,0,0));
-    list.append(Position::makeSteps(4,0,0,0));
-    list.append(Position::makeSteps(5,0,0,0));
-    list.append(Position::makeSteps(6,0,0,0));
-    list.append(Position::makeSteps(7,0,0,0));
-    list.append(Position::makeSteps(8,0,0,0));
-    list.append(Position::makeSteps(9,0,0,0));
-    list.append(Position::makeSteps(10,0,0,0));
-    list.append(Position::makeSteps(11,0,0,0));
-    list.append(Position::makeSteps(0,1,0,0));
-    list.append(Position::makeSteps(0,2,0,0));
-    list.append(Position::makeSteps(0,3,0,0));
-    list.append(Position::makeSteps(0,4,0,0));
-    list.append(Position::makeSteps(0,5,0,0));
-    list.append(Position::makeSteps(0,6,0,0));
-    list.append(Position::makeSteps(0,7,0,0));
-    list.append(Position::makeSteps(0,8,0,0));
-    list.append(Position::makeSteps(0,9,0,0));
-    list.append(Position::makeSteps(0,10,0,0));
-    list.append(Position::makeSteps(0,11,0,0));
-    list.append(Position::makeSteps(0,0,1,0));
-    list.append(Position::makeSteps(0,0,2,0));
-    list.append(Position::makeSteps(0,0,3,0));
-    list.append(Position::makeSteps(0,0,4,0));
-    list.append(Position::makeSteps(0,0,5,0));
-    list.append(Position::makeSteps(0,0,6,0));
-    list.append(Position::makeSteps(0,0,7,0));
-    list.append(Position::makeSteps(0,0,8,0));
-    list.append(Position::makeSteps(0,0,9,0));
-    list.append(Position::makeSteps(0,0,10,0));
-    list.append(Position::makeSteps(0,0,11,0));
-    list.append(Position::makeSteps(0,0,0,1));
-    list.append(Position::makeSteps(0,0,0,2));
-    list.append(Position::makeSteps(0,0,0,3));
-    list.append(Position::makeSteps(0,0,0,4));
-    list.append(Position::makeSteps(0,0,0,5));
-    list.append(Position::makeSteps(0,0,0,6));
-    list.append(Position::makeSteps(0,0,0,7));
-    list.append(Position::makeSteps(0,0,0,8));
-    list.append(Position::makeSteps(0,0,0,9));
-    list.append(Position::makeSteps(0,0,0,10));
-    list.append(Position::makeSteps(0,0,0,11));
-    list.append(Position::makeSteps(1,0,1,0));
-    list.append(Position::makeSteps(2,0,2,0));
-    list.append(Position::makeSteps(3,0,3,0));
-    list.append(Position::makeSteps(4,0,4,0));
-    list.append(Position::makeSteps(5,0,5,0));
-    list.append(Position::makeSteps(6,0,6,0));
-    list.append(Position::makeSteps(7,0,7,0));
-    list.append(Position::makeSteps(8,0,8,0));
-    list.append(Position::makeSteps(9,0,9,0));
-    list.append(Position::makeSteps(10,0,10,0));
-    list.append(Position::makeSteps(11,0,11,0));
-    list.append(Position::makeSteps(0,1,1,0));
-    list.append(Position::makeSteps(0,2,2,0));
-    list.append(Position::makeSteps(0,3,3,0));
-    list.append(Position::makeSteps(0,4,4,0));
-    list.append(Position::makeSteps(0,5,5,0));
-    list.append(Position::makeSteps(0,6,6,0));
-    list.append(Position::makeSteps(0,7,7,0));
-    list.append(Position::makeSteps(0,8,8,0));
-    list.append(Position::makeSteps(0,9,9,0));
-    list.append(Position::makeSteps(0,10,10,0));
-    list.append(Position::makeSteps(0,11,11,0));
-    list.append(Position::makeSteps(1,0,0,1));
-    list.append(Position::makeSteps(2,0,0,2));
-    list.append(Position::makeSteps(3,0,0,3));
-    list.append(Position::makeSteps(4,0,0,4));
-    list.append(Position::makeSteps(5,0,0,5));
-    list.append(Position::makeSteps(6,0,0,6));
-    list.append(Position::makeSteps(7,0,0,7));
-    list.append(Position::makeSteps(8,0,0,8));
-    list.append(Position::makeSteps(9,0,0,9));
-    list.append(Position::makeSteps(10,0,0,10));
-    list.append(Position::makeSteps(11,0,0,11));
-    list.append(Position::makeSteps(1,0,0,1));
-    list.append(Position::makeSteps(2,0,0,2));
-    list.append(Position::makeSteps(3,0,0,3));
-    list.append(Position::makeSteps(4,0,0,4));
-    list.append(Position::makeSteps(5,0,0,5));
-    list.append(Position::makeSteps(6,0,0,6));
-    list.append(Position::makeSteps(7,0,0,7));
-    list.append(Position::makeSteps(8,0,0,8));
-    list.append(Position::makeSteps(9,0,0,9));
-    list.append(Position::makeSteps(10,0,0,10));
-    list.append(Position::makeSteps(11,0,0,11));
-    obj.setSteps(list);
-    obj.setAttack(list);
-    list.clear();
-    {
-        QChar X = a1 ? QChar('D') : QChar('E');
-        obj.setPosStr(QString("") + X + startPos.at(1) + idY);
+    else if (numplayer == 2){
+        obj = Figure::makeFigure(fignames[0], "A11", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "B11", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "C11", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "D11", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "E11", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "F11", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "G11", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[0], "H11", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[1], "A12", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[1], "H12", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[2], "B12", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[2], "G12", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[3], "C12", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[3], "F12", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[4], "E12", numplayer);
+        this->listFigure.append(obj);
+        obj = Figure::makeFigure(fignames[5], "D12", numplayer);
         this->listFigure.append(obj);
     }
-
-    this->listFigure.append(obj);
-    obj.setName(fignames[5]);
-    list.append(Position::makeSteps(1,0,0,0));
-    list.append(Position::makeSteps(0,1,0,0));
-    list.append(Position::makeSteps(0,0,1,0));
-    list.append(Position::makeSteps(0,0,0,1));
-    list.append(Position::makeSteps(1,0,1,0));
-    list.append(Position::makeSteps(1,0,0,1));
-    list.append(Position::makeSteps(0,1,1,0));
-    list.append(Position::makeSteps(0,1,0,1));
-    obj.setAttack(list);
-    list.append(Position::makeSteps(0,0,2,0));
-    list.append(Position::makeSteps(0,0,0,2));
-    obj.setSteps(list);
-    {
-        QChar X = a1 ? QChar('E') : QChar('D');
-        obj.setPosStr(QString("") + X + startPos.at(1) + idY);
-        this->listFigure.append(obj);
-    }
-    this->listFigure.append(obj);
 
     this->score = 0;
 }
@@ -298,10 +117,10 @@ InfoPlayer::InfoPlayer(QString newName, QString startPos)
 InfoPlayer::InfoPlayer(InfoPlayer* player){
     if (player && player != this){
         this->playerName = player->getName();
+        listFigure.clear();
         for (int i = 0; i < 16; i++){
-            this->listFigure[i] = player->getFigure(i);
+            this->listFigure.append(player->getFigure(i));
         }
-
         score = player->score;
     }
 }
@@ -318,8 +137,9 @@ InfoPlayer::~InfoPlayer(){
 
 InfoPlayer& InfoPlayer::operator=(const InfoPlayer& obj){
     this->playerName = obj.playerName;
+    listFigure.clear();
     for (int i = 0; i < 16; i++){
-        this->listFigure[i] = obj.listFigure.at(i);
+        this->listFigure.append(obj.listFigure.at(i));
     }
     score = obj.score;
     return *this;

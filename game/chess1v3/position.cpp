@@ -6,6 +6,12 @@ Position::Position(char newX, short newY)
 
 }
 
+Position::Position(const QString &obj){
+    x = obj[0].unicode();
+    y = obj.mid(1).toShort(0, 10);
+}
+
+
 Position::Position(const Position& obj){
     this->x = obj.x;
     this->y = obj.y;
@@ -17,12 +23,12 @@ Position Position::getPos() const
     return Position(x, y);
 }
 
-bool Position::checkPos(const Position &newPos) const
+bool Position::checkPos(const struct steps &offs) const
 {
-    if (newPos.x > Position::xmax || newPos.x < Position::xmin){
+    if (x+offs.n-offs.s > Position::xmax || x+offs.n-offs.s < Position::xmin){
         return false;
     }
-    if (newPos.y > Position::ymax || newPos.y < Position::ymin) {
+    if (y+offs.e-offs.w > Position::ymax || y+offs.e-offs.w < Position::ymin) {
         return false;
     }
     return true;
@@ -55,6 +61,14 @@ Position& Position::operator=(const Position& obj)
     return *this;
 }
 
+bool Position::operator==(const Position &obj)
+{
+    if (x == obj.x && y == obj.y){
+        return true;
+    }
+    return false;
+}
+
 void Position::setPos(const Position& obj){
     this->x = obj.x;
     this->y = obj.y;
@@ -85,3 +99,20 @@ void Position::setPosStr(QString obj){
         y = newY;
     }
 }
+
+QString Position::toString()
+{
+    return x + QString::number(y, 10);
+}
+
+bool Position::operator==(const QString& obj){
+    if (!obj.compare(toString())){
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+
+
