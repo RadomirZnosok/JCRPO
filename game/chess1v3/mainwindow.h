@@ -65,6 +65,8 @@ private slots:
 
     void on_check_pb_clicked();
 
+    void on_checkmate_pb_clicked();
+
 private:
     int stage;                      // 1 - create game()from startPage, 2 создание новой игры() from gamePage
         //
@@ -77,7 +79,7 @@ private:
     int sequence;                   // очередность хода
     bool isCurPlace;                // true - нажата фигура, false - не нажата
     QString curPlace;                // место активированной кнопки
-    DeskPlace* A1;
+    DeskPlace* A1[8][12];
     QMap<QString, DeskPlace*> mapOffsets;
     //-----------------------------------------------------------------------------------------
     // loadWidget
@@ -90,7 +92,7 @@ private:
     void setIconFigure(DeskPlace* ob, const QString& figName);
     bool makeStep(DeskPlace* ob);
     bool makeHit(DeskPlace* ob);
-    bool isEndPlace(Position cmped);
+    bool isEndPlace(QString cmped);
     void nextPlayerTurn();                      // передача очередности хода
     void enablePlayerPlaces();      //
 //    void enableStepPlaces(int col, int row);    // ошибка адресации кнопок для игроков 2,3
@@ -99,5 +101,6 @@ private:
 //    void enableForFigButtons(DeskPlace* ob);
     void blockAllButtons();
     void setPlayerFig(int i);
+    int dial_event_check();
 };
 #endif // MAINWINDOW_H

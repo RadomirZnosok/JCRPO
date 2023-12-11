@@ -2,7 +2,6 @@
 #define DESKPLACE_H
 
 #include <QPushButton>
-#include "figure.h"
 
 
 class MainWindow;
@@ -10,7 +9,7 @@ class MainWindow;
 class DeskPlace: public QPushButton
 {
 private:
-    Figure* figure;
+    int figure;
     QPushButton* picture;
     int player;
     QString name;
@@ -21,18 +20,12 @@ public:
     void setPicture(QString path);
     bool isEmpty();
     void set_Visible(bool flag = true);
-    void setFigure(Figure* obj, int player = -1);
-    Figure* getFigure();
+    void setFigure(int obj = -1, int player = -1);
+    int getFigure();
     int getPlayer() const;
     void setPlayer(int newPlayer);
 
     bool checkPlace(struct steps offs);
-
-
-    DeskPlace* up;
-    DeskPlace* down;
-    DeskPlace* right;
-    DeskPlace* left;
     QString getName() const;
 };
 

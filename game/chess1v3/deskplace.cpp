@@ -24,13 +24,8 @@ DeskPlace::DeskPlace(QWidget* parent, QPushButton* mybutton, QPushButton* pict, 
     setObjectName(mybutton->objectName());
     setGeometry(mybutton->geometry());
     setText(mybutton->text());
-    figure = nullptr;
+    figure = -1;
     player = -1;
-    up = nullptr;
-    down = nullptr;
-    right = nullptr;
-    left = nullptr;
-
 }
 
 void DeskPlace::setPicture(QString path)
@@ -52,23 +47,23 @@ bool DeskPlace::isEmpty(){
 
 
 void DeskPlace::set_Visible(bool flag){
-    setEnabled(flag);
-    if (flag && !this->figure) {
+    setEnabled(!flag);
+    if (!flag) {
         this->show();
     }
-    else if (!flag){
+    else if (flag){//&& !this->figure){
         this->hide();
     }
 
 }
 
 
-void DeskPlace::setFigure(Figure* obj, int player){
+void DeskPlace::setFigure(int obj, int player){
     figure = obj;
     this->player = player;
 }
 
-Figure* DeskPlace::getFigure(){
+int DeskPlace::getFigure(){
     return this->figure;
 }
 

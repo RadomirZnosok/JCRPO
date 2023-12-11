@@ -158,7 +158,8 @@ Figure InfoPlayer::getFigure(int i) const {
 }
 
 void InfoPlayer::setFigure(const Figure& figure, int num){
-    this->listFigure[num] = figure;
+    listFigure.takeAt(num);
+    this->listFigure.insert(num, figure);
 
 }
 
